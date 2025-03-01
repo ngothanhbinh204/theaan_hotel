@@ -1,0 +1,7 @@
+.navbar {
+    @apply bg-white shadow-md p-4;
+  
+    .logo {
+      @apply text-2xl font-bold text-gray-800;
+    }
+  }
