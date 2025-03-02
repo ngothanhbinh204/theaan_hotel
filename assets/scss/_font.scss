@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Regular.ttf') format('ttf'),
+         url('../fonts/Gilroy-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Bold.ttf') format('ttf'),
+         url('../fonts/Gilroy-Bold.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Andada Pro';
+    src: url('../fonts/AndadaPro-Regular.ttf') format('ttf'),
+         url('../fonts/AndadaPro-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Andada Pro';
+    src: url('../fonts/AndadaPro-Bold.ttf') format('ttf'),
+         url('../fonts/AndadaPro-Bold.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Định nghĩa biến SCSS */
+$font-primary: 'Gilroy', sans-serif;
+$font-secondary: 'Andada Pro', serif;
+
+/* Áp dụng vào body và heading */
+body {
+    font-family: $font-primary;
+}
+
+h1, h2 {
+    font-family: $font-primary;
+}

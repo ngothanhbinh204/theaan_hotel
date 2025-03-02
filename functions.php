@@ -182,18 +182,11 @@ if (defined('JETPACK__VERSION')) {
 }
 
 
-// add_action('wp_enqueue_scripts', 'theme_enqueue_styles', 1001);
-// function theme_enqueue_styles()
-// {
-
-// 	wp_enqueue_style('fonts', get_stylesheet_directory_uri() . '/fonts/stylesheet.css');
-// 	wp_enqueue_style('tailwind', get_stylesheet_directory_uri() . '/assets/libs/tailwind_custom.css');
-// 	wp_enqueue_style('frontend', get_stylesheet_directory_uri() . '/assets/css/frontend.css');
-
-// }
-
 function theann_hotel_enqueue_styles()
 {
-		wp_enqueue_style('theann-style', get_stylesheet_directory_uri() . '/dist/css/style.min.css');
+	wp_enqueue_style('theann-style', get_stylesheet_directory_uri() . '/dist/css/style.min.css');
 }
 add_action('wp_enqueue_scripts', 'theann_hotel_enqueue_styles');
+
+
+// Code Register Post Type Rooms
