@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Header with Submenu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for WordPress integration */
+        .submenu {
+            display: none;
+        }
+
+        .menu-item-has-children.active>.submenu {
+            display: block;
+        }
+
+        /* Mobile menu toggle */
+        #mobile-menu-content {
+            display: none;
+        }
+
+        #mobile-menu-content.active {
+            display: block;
+        }
+
+        /* For mobile submenu */
+        .mobile-main-menu {
+            display: block;
+        }
+
+        .mobile-main-menu.hidden {
+            display: none;
+        }
+
+        .mobile-submenu {
+            display: none;
+        }
+
+        .mobile-submenu.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-xl font-bold">Site Logo</span>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Desktop menu -->
+                <nav class="hidden md:block">
+                    <ul class="ml-10 flex items-baseline space-x-4">
+                        <li class="relative">
+                            <a href="/"
+                                class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Home</a>
+                        </li>
+                        <li class="relative menu-item-has-children">
+                            <a href="#"
+                                class="menu-toggle px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white flex items-center">
+                                Products
+                                <svg xmlns="http://www.w3.org/2000/svg" class="chevron-icon h-4 w-4 ml-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <ul
+                                class="submenu absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 py-1">
+                                <li><a href="/products/1"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Product 1</a>
+                                </li>
+                                <li><a href="/products/2"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Product 2</a>
+                                </li>
+                                <li><a href="/products/3"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Product 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="relative menu-item-has-children">
+                            <a href="#"
+                                class="menu-toggle px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white flex items-center">
+                                Services
+                                <svg xmlns="http://www.w3.org/2000/svg" class="chevron-icon h-4 w-4 ml-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <ul
+                                class="submenu absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 py-1">
+                                <li><a href="/services/1"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Service 1</a>
+                                </li>
+                                <li><a href="/services/2"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Service 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="relative">
+                            <a href="/about"
+                                class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">About
+                                Us</a>
+                        </li>
+                        <li class="relative">
+                            <a href="/contact"
+                                class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu-content" class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <!-- Mobile main menu -->
+                <ul id="mobile-main-menu" class="mobile-main-menu">
+                    <li>
+                        <a href="/"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
+                    </li>
+                    <li>
+                        <button data-submenu="products-submenu"
+                            class="mobile-submenu-toggle block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 w-full text-left flex justify-between items-center">
+                            Products
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
+                        <button data-submenu="services-submenu"
+                            class="mobile-submenu-toggle block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 w-full text-left flex justify-between items-center">
+                            Services
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
+                        <a href="/about"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">About
+                            Us</a>
+                    </li>
+                    <li>
+                        <a href="/contact"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Products submenu -->
+                <ul id="products-submenu" class="mobile-submenu">
+                    <li>
+                        <button
+                            class="back-to-main-menu block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 w-full text-left flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                            Back to Menu
+                        </button>
+                    </li>
+                    <li>
+                        <a href="/products/1"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 ml-4">Product
+                            1</a>
+                    </li>
+                    <li>
+                        <a href="/products/2"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 ml-4">Product
+                            2</a>
+                    </li>
+                    <li>
+                        <a href="/products/3"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 ml-4">Product
+                            3</a>
+                    </li>
+                </ul>
+
+                <!-- Services submenu -->
+                <ul id="services-submenu" class="mobile-submenu">
+                    <li>
+                        <button
+                            class="back-to-main-menu block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 w-full text-left flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                            Back to Menu
+                        </button>
+                    </li>
+                    <li>
+                        <a href="/services/1"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 ml-4">Service
+                            1</a>
+                    </li>
+                    <li>
+                        <a href="/services/2"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 ml-4">Service
+                            2</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h1 class="text-2xl font-bold mb-4">Welcome to Our Website</h1>
+            <p class="mb-4">
+                This is a demonstration of a WordPress header with menu and submenu functionality.
+            </p>
+            <p>
+                Try clicking on the menu items in the navigation bar above. When you click on a menu item with a
+                submenu,
+                it will show the submenu. Clicking the same menu item again will hide the submenu and show the main
+                menu.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        // Toggle mobile menu
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuContent = document.getElementById('mobile-menu-content');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuToggle.addEventListener('click', function () {
+            mobileMenuContent.classList.toggle('active');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Desktop menu toggle
+        const menuToggles = document.querySelectorAll('.menu-toggle');
+
+        menuToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                const parent = this.parentElement;
+
+                // If this menu is already active, close it
+                if (parent.classList.contains('active')) {
+                    parent.classList.remove('active');
+                } else {
+                    // Close any open menus
+                    document.querySelectorAll('.menu-item-has-children').forEach(item => {
+                        item.classList.remove('active');
+                    });
+
+                    // Open this menu
+                    parent.classList.add('active');
+                }
+            });
+        });
+
+        // Close menus when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.menu-item-has-children')) {
+                document.querySelectorAll('.menu-item-has-children').forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        });
+
+        // Mobile submenu toggle
+        const mobileSubmenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+        const mobileMainMenu = document.getElementById('mobile-main-menu');
+
+        mobileSubmenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const submenuId = this.getAttribute('data-submenu');
+                const submenu = document.getElementById(submenuId);
+
+                // Hide main menu
+                mobileMainMenu.classList.add('hidden');
+
+                // Show submenu
+                submenu.classList.add('active');
+            });
+        });
+
+        // Back to main menu
+        const backButtons = document.querySelectorAll('.back-to-main-menu');
+
+        backButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Hide all submenus
+                document.querySelectorAll('.mobile-submenu').forEach(submenu => {
+                    submenu.classList.remove('active');
+                });
+
+                // Show main menu
+                mobileMainMenu.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>

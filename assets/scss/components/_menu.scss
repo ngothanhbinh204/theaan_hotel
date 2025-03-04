@@ -1,0 +1,368 @@
+/**
+ * WordPress Custom Menu Styles
+ * With support for multi-level menus
+ */
+
+/* Custom styles for WordPress integration */
+.submenu {
+    display: none;
+}
+
+.menu-item-has-children.active > .submenu {
+    display: block;
+}
+
+/* Mobile menu toggle */
+#mobile-menu-content {
+    display: none;
+}
+
+#mobile-menu-content.active {
+    display: block;
+}
+
+/* For mobile submenu */
+.mobile-main-menu {
+    display: block;
+}
+
+.mobile-main-menu.hidden {
+    display: none;
+}
+
+.mobile-submenu {
+    display: none;
+}
+
+.mobile-submenu.active {
+    display: block;
+}
+
+/* WordPress specific menu adjustments */
+.menu-item {
+    position: relative;
+}
+
+.sub-menu {
+    display: none;
+}
+
+.menu-item-has-children.active > .sub-menu {
+    display: block;
+}
+
+/* Multi-level menu specific styles */
+.menu-item-has-children .menu-item-has-children > .submenu,
+.menu-item-has-children .menu-item-has-children > .sub-menu {
+    left: 100%;
+    top: 0;
+    margin-top: 0;
+}
+
+/* Ensure submenus don't go off-screen */
+@media (min-width: 768px) {
+    .menu-item-has-children:last-child .submenu,
+    .menu-item-has-children:last-child .sub-menu,
+    .menu-item-has-children:nth-last-child(2) .submenu,
+    .menu-item-has-children:nth-last-child(2) .sub-menu {
+        right: 0;
+        left: auto;
+    }
+    
+    .menu-item-has-children:last-child .menu-item-has-children .submenu,
+    .menu-item-has-children:last-child .menu-item-has-children .sub-menu,
+    .menu-item-has-children:nth-last-child(2) .menu-item-has-children .submenu,
+    .menu-item-has-children:nth-last-child(2) .menu-item-has-children .sub-menu {
+        right: 100%;
+        left: auto;
+    }
+}
+
+/* Fix for WordPress admin bar */
+body.admin-bar header {
+    margin-top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar header {
+        margin-top: 46px;
+    }
+}
+
+
+/* Multi-level Menu Styles */
+
+/* General menu styling */
+.main-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-menu > li {
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Menu item styling */
+  .menu-item a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+  }
+  
+  .menu-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Submenu styling */
+  .submenu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    background-color: #374151;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .submenu li {
+    margin: 0;
+  }
+  
+  .submenu a {
+    padding: 0.5rem 1rem 0.5rem 2rem;
+  }
+  
+  /* Level 3+ submenus */
+  .submenu .submenu {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-left: 1rem;
+    box-shadow: none;
+    background-color: #4b5563;
+  }
+  
+  .submenu .submenu a {
+    padding-left: 3rem;
+  }
+  
+  .submenu .submenu .submenu a {
+    padding-left: 4rem;
+  }
+  
+  /* Active states */
+  .menu-item.active > a {
+    background-color: #4b5563;
+  }
+  
+  .menu-item.active > .submenu {
+    display: block;
+  }
+  
+  /* Hide siblings when a menu is active */
+  .menu-level-active > li:not(.active) {
+    display: none;
+  }
+  
+  /* Back button */
+  .back-button {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: white;
+    background-color: #1f2937;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .back-button svg {
+    margin-right: 0.5rem;
+  }
+  
+  /* Mobile menu specific styles */
+  @media (max-width: 768px) {
+    #mobile-menu-content {
+      display: none;
+      background-color: #1f2937;
+      padding: 1rem;
+    }
+  
+    #mobile-menu-content.active {
+      display: block;
+    }
+  
+    .mobile-submenu {
+      display: none;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  
+    .mobile-submenu.active {
+      display: block;
+    }
+  
+    #mobile-main-menu.hidden {
+      display: none;
+    }
+  }
+  
+  /* Desktop menu specific styles */
+  @media (min-width: 769px) {
+    .main-menu {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .main-menu > li {
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+  
+    .submenu {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 200px;
+      z-index: 100;
+    }
+  
+    .submenu .submenu {
+      left: 100%;
+      top: 0;
+      margin-left: 0;
+    }
+  
+    /* Reset the hiding of siblings for desktop */
+    .menu-level-active > li:not(.active) {
+      display: block;
+    }
+  
+    /* For desktop, we use a different approach */
+    .menu-item-has-children.active > .submenu {
+      display: block;
+    }
+  }
+  
+  
+
+  /**
+ * WordPress Custom Menu Styles
+ * With support for multi-level menus
+ */
+
+/* Custom styles for WordPress integration */
+.submenu {
+    display: none;
+}
+
+.menu-item-has-children.active > .submenu,
+.menu-item-has-children.active > .sub-menu {
+    display: block;
+}
+
+/* Mobile menu toggle */
+#mobile-menu-content {
+    display: none;
+}
+
+#mobile-menu-content.active {
+    display: block;
+}
+
+/* For mobile submenu */
+.mobile-main-menu {
+    display: block;
+}
+
+.mobile-main-menu.hidden {
+    display: none;
+}
+
+.mobile-submenu {
+    display: none;
+}
+
+.mobile-submenu.active {
+    display: block;
+}
+
+/* WordPress specific menu adjustments */
+.menu-item {
+    position: relative;
+}
+
+.sub-menu {
+    display: none;
+}
+
+.menu-item-has-children.active > .sub-menu {
+    display: block;
+}
+
+/* Multi-level menu specific styles */
+.menu-item-has-children .menu-item-has-children > .submenu,
+.menu-item-has-children .menu-item-has-children > .sub-menu {
+    left: 100%;
+    top: 0;
+    margin-top: 0;
+}
+
+/* Ensure submenus don't go off-screen */
+@media (min-width: 768px) {
+    .menu-item-has-children:last-child .submenu,
+    .menu-item-has-children:last-child .sub-menu,
+    .menu-item-has-children:nth-last-child(2) .submenu,
+    .menu-item-has-children:nth-last-child(2) .sub-menu {
+        right: 0;
+        left: auto;
+    }
+    
+    .menu-item-has-children:last-child .menu-item-has-children .submenu,
+    .menu-item-has-children:last-child .menu-item-has-children .sub-menu,
+    .menu-item-has-children:nth-last-child(2) .menu-item-has-children .submenu,
+    .menu-item-has-children:nth-last-child(2) .menu-item-has-children .sub-menu {
+        right: 100%;
+        left: auto;
+    }
+}
+
+/* Fix for WordPress admin bar */
+body.admin-bar header {
+    margin-top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar header {
+        margin-top: 46px;
+    }
+}
+
+/* Fix for nested submenu display */
+.submenu .menu-item-has-children.active > .submenu,
+.sub-menu .menu-item-has-children.active > .sub-menu {
+    display: block;
+    position: absolute;
+}
+
+/* Mobile submenu back navigation */
+.back-to-parent-menu, 
+.back-to-main-menu {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+}

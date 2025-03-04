@@ -184,9 +184,78 @@ if (defined('JETPACK__VERSION')) {
 
 function theann_hotel_enqueue_styles()
 {
+	wp_enqueue_script('main-js', get_template_directory_uri() . './assets/js/main.js', array('jquery'), '1.0', true);
+
 	wp_enqueue_style('theann-style', get_stylesheet_directory_uri() . '/dist/css/style.min.css');
 }
 add_action('wp_enqueue_scripts', 'theann_hotel_enqueue_styles');
 
 
-// Code Register Post Type Rooms
+
+/**
+ * Theme functions and definitions
+ */
+
+// Include the custom menu walker and functions
+require_once get_template_directory() . './wordpress-integration.php';
+
+/**
+ * Register navigation menus
+ */
+function theme_register_menus()
+{
+	register_nav_menus(array(
+		'primary' => __('Primary Menu', 'theme-textdomain'),
+		'footer'  => __('Footer Menu', 'theme-textdomain'),
+	));
+}
+add_action('after_setup_theme', 'theme_register_menus');
+
+/**
+ * Add custom menu classes
+ */
+function add_menu_parent_class($items)
+{
+	$parents = array();
+
+	// Collect menu items with children
+	foreach ($items as $item) {
+		if ($item->menu_item_parent && $item->menu_item_parent > 0) {
+			$parents[] = $item->menu_item_parent;
+		}
+	}
+
+	// Add class to menu items that have children
+	foreach ($items as $item) {
+		if (in_array($item->ID, $parents)) {
+			$item->classes[] = 'menu-item-has-children';
+		}
+	}
+
+	return $items;
+}
+add_filter('wp_nav_menu_objects', 'add_menu_parent_class');
+
+/**
+ * Theme setup
+ */
+function theme_setup()
+{
+	// Add theme support for various features
+	add_theme_support('title-tag');
+	add_theme_support('post-thumbnails');
+	add_theme_support('custom-logo', array(
+		'height'      => 40,
+		'width'       => 120,
+		'flex-width'  => true,
+		'flex-height' => true,
+	));
+	add_theme_support('html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	));
+}
+add_action('after_setup_theme', 'theme_setup');
