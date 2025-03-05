@@ -27,10 +27,10 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <header class="site-header bg-white shadow-md">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-xl font-bold">
+    <header id="masthead" class="site-header">
+        <nav class="container wrapper_header">
+            <div class="flex relative justify-between items-center">
+                <div class="logo_custom">
                     <?php
                     if (has_custom_logo()) {
                         the_custom_logo();
@@ -39,14 +39,16 @@
                     }
                     ?>
                 </div>
-                <button id="menuToggle" class="p-2 hover:bg-gray-100 rounded-lg" aria-label="Toggle Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
+                <button id="menuToggle" class="flex flex-col items-center">
+                    <div class="wrapper_line flex flex-col">
+                        <div class="line_button bg-white rounded-full"></div>
+                        <div class="line_button bg-white rounded-full"></div>
+                        <div class="line_button bg-white rounded-full"></div>
+                    </div>
+                    <span class="text-white uppercase">Menu</span>
                 </button>
+
+
             </div>
 
             <div id="menuContainer"

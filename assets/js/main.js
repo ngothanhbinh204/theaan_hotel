@@ -177,3 +177,26 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.onclick = toggleMenu;
     closeMenu.onclick = toggleMenu;
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("masthead");
+    if (!header) return;
+  
+    let ticking = false;
+  
+    window.addEventListener("scroll", function () {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                if (window.scrollY > 50) {
+                    header.classList.add("header_scroll");
+                } else {
+                    header.classList.remove("header_scroll");
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+  });

@@ -1,6 +1,10 @@
 {
   "name": "theann-hotel",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngothanhbinh204/theaan_hotel.git"
+  },
   "description": "Theme Theann Hotel Build By QuataAgency",
   "keywords": [
     "TheAnn",
@@ -23,10 +27,15 @@
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
+    "gulp-rev": "^11.0.0",
     "gulp-sass": "^6.0.0",
     "gulp-terser": "^2.1.0",
     "postcss": "^8.5.3",
     "sass": "^1.85.1",
     "tailwindcss": "^3.4.17"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ngothanhbinh204/theaan_hotel/issues"
+  },
+  "homepage": "https://github.com/ngothanhbinh204/theaan_hotel#readme"
 }

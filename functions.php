@@ -149,8 +149,8 @@ function theann_hotel_assets()
 
 	// Enqueue Foundation (nếu cần)
 	if (is_front_page()) {
-		wp_enqueue_style('foundation-css', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css');
-		wp_enqueue_script('foundation-js', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js', array('jquery'), '', true);
+		// wp_enqueue_style('foundation-css', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css');
+		// wp_enqueue_script('foundation-js', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js', array('jquery'), '', true);
 	}
 
 	// Enqueue Navigation Script
@@ -194,7 +194,7 @@ if (defined('JETPACK__VERSION')) {
 
 function theann_hotel_enqueue_styles()
 {
-	wp_enqueue_style('theann-style', get_stylesheet_directory_uri() . '/dist/css/style.min.css');
+	// wp_enqueue_style('theann-style', get_stylesheet_directory_uri() . '/dist/css/style.min.css');
 }
 add_action('wp_enqueue_scripts', 'theann_hotel_enqueue_styles');
 

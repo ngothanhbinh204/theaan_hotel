@@ -18,12 +18,12 @@ module.exports = {
       container: {
         center: true, // Đảm bảo container luôn căn giữa
         padding: {
-          DEFAULT: "1.5rem", // Padding mặc định
+          DEFAULT: "20px", // Padding mặc định
           // sm: "1.5rem",  // Padding cho màn hình nhỏ
           // md: "1.5rem",  // Padding cho màn hình trung bình
-          // lg: "1rem",  // Padding cho màn hình lớn
-          // xl: "1rem",  // Padding cho màn hình rất lớn
-          // "2xl": "1rem", // Padding cho màn hình cực lớn 
+          lg: "1.5rem",  // Padding cho màn hình lớn
+          xl: "1.5rem",  // Padding cho màn hình rất lớn
+          "2xl": "1.5rem", // Padding cho màn hình cực lớn 
         },
       },
       maxWidth: {
