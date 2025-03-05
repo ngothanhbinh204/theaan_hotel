@@ -7,48 +7,13 @@ Version: 1.0.0
 License: GNU General Public License v2 or later
 */
 
-// Variables
-$bg-white: white;
+/* Variables */
 $border-color: #f1f1f1;
-$text-gray: #666;
 $hover-bg: #f9fafb;
-$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-$transition: 0.2s ease;
+$text-color: #666;
+$transition: 0.3s ease;
 
-// Mixins
-@mixin transition($property...) {
-    transition: $property;
-}
-
-// Utility classes
-.bg-white {
-    background-color: $bg-white;
-}
-
-.shadow-md {
-    box-shadow: $shadow-md;
-}
-
-.hidden {
-    display: none;
-}
-
-.fixed {
-    position: fixed;
-}
-
-.inset-0 {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.z-50 {
-    z-index: 50;
-}
-
-// Container
+/* Tailwind-like utility classes */
 .container {
     width: 100%;
     margin-left: auto;
@@ -67,30 +32,30 @@ $transition: 0.2s ease;
     }
 }
 
-// Menu styles
+/* Menu styles */
 #menuContainer {
     transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    @include transition(transform 0.4s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.4s ease);
+    transition: transform $transition;
+    display: none;
 }
 
 .menu-open {
     transform: translateY(0) !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
     display: block !important;
 }
 
-.menu-item {
+.menu-item, .menu-back {
     padding: 1rem 1.5rem;
     font-size: 1.25rem;
-    border-bottom: 1px solid $border-color;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    @include transition(background-color 0.2s);
+    transition: background-color 0.2s;
+}
+
+.menu-item {
+    border-bottom: 1px solid $border-color;
+    justify-content: space-between;
 
     &:hover {
         background-color: $hover-bg;
@@ -98,42 +63,34 @@ $transition: 0.2s ease;
 }
 
 .menu-back {
-    padding: 1rem 1.5rem;
-    font-size: 1.25rem;
-    color: $text-gray;
-    display: flex;
-    align-items: center;
+    color: $text-color;
     gap: 0.5rem;
-    cursor: pointer;
-    @include transition(background-color 0.2s);
-
+    
     &:hover {
         background-color: $hover-bg;
     }
 }
 
-// Animation classes
+/* Animation classes */
 .menu-level {
     opacity: 0;
-    @include transition(opacity $transition);
+    transition: opacity $transition;
 
     &.active {
         opacity: 1;
     }
 }
 
-.fade-enter,
-.fade-exit {
-    opacity: 0;
-    @include transition(opacity $transition);
-}
-
-.fade-enter-active {
-    opacity: 1;
-}
-
-// Header styles
+/* Header styles */
 .site-header {
-    background-color: $bg-white;
+    background-color: white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
+
+/* Utility classes */
+.bg-white { background-color: white; }
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+.hidden { display: none; }
+.fixed { position: fixed; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.z-50 { z-index: 50; }

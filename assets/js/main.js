@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menuHtml.className = 'menu-level';
 
         if (menuStack.length > 1) {
-             // Get the parent menu item 
-             const parentMenu = menuStack[menuStack.length - 2];
-             const parentLabel = parentMenu.find(item => 
-                 item.children === menuStack[menuStack.length - 1]
-             )?.label || 'Main Menu';
+            const parentMenu = menuStack[menuStack.length - 2];
+            const parentLabel = parentMenu.find(item => 
+                item.children === menuStack[menuStack.length - 1]
+            )?.label || 'Main Menu';
+
             const backButton = document.createElement('div');
             backButton.className = 'menu-back';
             backButton.innerHTML = `
@@ -50,25 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
             menuHtml.appendChild(itemElement);
         });
 
-        // Fade out current content
         const currentContent = menuContent.querySelector('.menu-level');
         if (currentContent) {
             currentContent.style.opacity = '0';
         }
 
-        // After fade out, update content
         setTimeout(() => {
             menuContent.innerHTML = '';
             menuContent.appendChild(menuHtml);
             
-            // Trigger fade in
             requestAnimationFrame(() => {
                 menuHtml.classList.add('active');
                 setTimeout(() => {
                     isAnimating = false;
-                }, 200);
+                }, 300);
             });
-        }, currentContent ? 200 : 0);
+        }, currentContent ? 300 : 0);
     }
 
     function handleDrillDown(item) {
@@ -88,21 +85,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleMenu() {
         if (isAnimating) return;
         
-        menuContainer.classList.toggle('menu-open');
-        
-        if (menuContainer.classList.contains('menu-open')) {
-            menuStack = [menuData];
+        if (!menuContainer.classList.contains('menu-open')) {
             menuContainer.style.display = 'block';
+            // Force a reflow to ensure the display:block takes effect before adding the class
+            menuContainer.offsetHeight;
+            menuContainer.classList.add('menu-open');
+            menuStack = [menuData];
             setTimeout(() => {
                 renderMenu(menuData);
-            }, 100);
+            }, 300);
         } else {
             isAnimating = true;
+            menuContainer.classList.remove('menu-open');
             menuContent.innerHTML = '';
             setTimeout(() => {
                 menuContainer.style.display = 'none';
                 isAnimating = false;
-            }, 200);
+            }, 500);
         }
     }
 
