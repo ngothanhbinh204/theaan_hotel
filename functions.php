@@ -141,18 +141,27 @@ add_action('widgets_init', 'theann_hotel_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
-function theann_hotel_scripts()
-{
-	wp_enqueue_style('theann-hotel-style', get_stylesheet_uri(), array(), _S_VERSION);
-	wp_style_add_data('theann-hotel-style', 'rtl', 'replace');
 
+function theann_hotel_assets()
+{
+	// Enqueue theme style
+	wp_enqueue_style('theann-hotel-style', get_stylesheet_directory_uri() . '/dist/css/style.min.css', array(), _S_VERSION);
+
+	// Enqueue Foundation (nếu cần)
+	if (is_front_page()) {
+		wp_enqueue_style('foundation-css', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css');
+		wp_enqueue_script('foundation-js', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js', array('jquery'), '', true);
+	}
+
+	// Enqueue Navigation Script
 	wp_enqueue_script('theann-hotel-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
+	// Enqueue comment-reply nếu có bình luận mở
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 }
-add_action('wp_enqueue_scripts', 'theann_hotel_scripts');
+add_action('wp_enqueue_scripts', 'theann_hotel_assets');
 
 /**
  * Implement the Custom Header feature.
@@ -180,82 +189,88 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+// require_once get_template_directory() . '/wordpress-integration.php';
 
 
 function theann_hotel_enqueue_styles()
 {
-	wp_enqueue_script('main-js', get_template_directory_uri() . './assets/js/main.js', array('jquery'), '1.0', true);
-
 	wp_enqueue_style('theann-style', get_stylesheet_directory_uri() . '/dist/css/style.min.css');
 }
 add_action('wp_enqueue_scripts', 'theann_hotel_enqueue_styles');
 
 
+// function register_my_menus()
+// {
+// 	register_nav_menus(array(
+// 		'primary' => __('Primary Menu'),
+// 		'footer'  => __('Footer Menu'),
+// 		'sidebar' => __('Sidebar Menu')
+// 	));
+// }
+// add_action('after_setup_theme', 'register_my_menus');
 
-/**
- * Theme functions and definitions
- */
 
-// Include the custom menu walker and functions
-require_once get_template_directory() . './wordpress-integration.php';
 
-/**
- * Register navigation menus
- */
-function theme_register_menus()
-{
-	register_nav_menus(array(
-		'primary' => __('Primary Menu', 'theme-textdomain'),
-		'footer'  => __('Footer Menu', 'theme-textdomain'),
-	));
-}
-add_action('after_setup_theme', 'theme_register_menus');
-
-/**
- * Add custom menu classes
- */
-function add_menu_parent_class($items)
-{
-	$parents = array();
-
-	// Collect menu items with children
-	foreach ($items as $item) {
-		if ($item->menu_item_parent && $item->menu_item_parent > 0) {
-			$parents[] = $item->menu_item_parent;
-		}
-	}
-
-	// Add class to menu items that have children
-	foreach ($items as $item) {
-		if (in_array($item->ID, $parents)) {
-			$item->classes[] = 'menu-item-has-children';
-		}
-	}
-
-	return $items;
-}
-add_filter('wp_nav_menu_objects', 'add_menu_parent_class');
-
-/**
- * Theme setup
- */
 function theme_setup()
 {
-	// Add theme support for various features
+	// Add theme support
 	add_theme_support('title-tag');
+	add_theme_support('custom-logo');
 	add_theme_support('post-thumbnails');
-	add_theme_support('custom-logo', array(
-		'height'      => 40,
-		'width'       => 120,
-		'flex-width'  => true,
-		'flex-height' => true,
-	));
-	add_theme_support('html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
+
+	// Register navigation menus
+	register_nav_menus(array(
+		'primary-menu' => __('Primary Menu', 'theme'),
 	));
 }
 add_action('after_setup_theme', 'theme_setup');
+
+function theme_scripts()
+{
+	// Enqueue styles
+	wp_enqueue_style('theme-style', get_stylesheet_uri());
+
+	// Enqueue JavaScript
+	wp_enqueue_script(
+		'main-js',
+		get_template_directory_uri() . './assets/js/main.js',
+		array(),
+		'1.0.0',
+		true
+	);
+
+	// Pass menu data to JavaScript
+	$menu_items = wp_get_nav_menu_items('primary-menu');
+	$menu_data = convert_menu_items_to_tree($menu_items);
+
+	wp_localize_script(
+		'main-js',
+		'menuData',
+		$menu_data
+	);
+}
+add_action('wp_enqueue_scripts', 'theme_scripts');
+
+function convert_menu_items_to_tree($items, $parent_id = 0)
+{
+	$branch = array();
+
+	foreach ($items as $item) {
+		if ($item->menu_item_parent == $parent_id) {
+			$children = convert_menu_items_to_tree($items, $item->ID);
+			$menu_item = array(
+				'id' => $item->ID,
+				'label' => $item->title,
+				'url' => $item->url
+			);
+
+			if (!empty($children)) {
+				$menu_item['children'] = $children;
+			}
+
+			$branch[] = $menu_item;
+		}
+	}
+
+	return $branch;
+}
