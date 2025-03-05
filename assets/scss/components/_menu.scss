@@ -56,6 +56,8 @@ $transition: 0.3s ease;
 .menu-item {
     border-bottom: 1px solid $border-color;
     justify-content: space-between;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+
 
     &:hover {
         background-color: $hover-bg;
@@ -78,6 +80,10 @@ $transition: 0.3s ease;
 
     &.active {
         opacity: 1;
+        .menu-item {
+            // transform: translate(-10px, 10px);
+
+        }
     }
 }
 

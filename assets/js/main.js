@@ -63,24 +63,93 @@ document.addEventListener('DOMContentLoaded', () => {
                 menuHtml.classList.add('active');
                 setTimeout(() => {
                     isAnimating = false;
-                }, 300);
+                }, 100);
             });
         }, currentContent ? 300 : 0);
     }
 
+    // function handleDrillDown(item) {
+    //     if (item.children && !isAnimating) {
+    //         menuStack.push(item.children);
+    //         const currentItems = menuContent.querySelectorAll('.menu-item');
+
+    //         currentItems.forEach((el, index) => {
+    //             el.style.transform = 'translate(-20px, 20px)';
+    //             el.style.opacity = '0';
+    //             el.style.transition = `transform 0.1s ease-out ${index * 50}ms, opacity 0.1s ease-out ${index * 50}ms`;
+    //         });
+    //         renderMenu(item.children);
+    //     }
+    // }
+
+    // function handleBack() {
+    //     if (!isAnimating && menuStack.length > 1) {
+    //         const currentItems = menuContent.querySelectorAll('.menu-item');
+    //         currentItems.forEach((el, index) => {
+    //             el.style.transform = 'translate(-20px, 20px)';
+    //             el.style.opacity = '0';
+    //             el.style.transition = `transform 0.1s ease-out ${index * 50}ms, opacity 0.1s ease-out ${index * 50}ms`;
+    //         });
+    //         menuStack.pop();
+    //         renderMenu(menuStack[menuStack.length - 1]);
+    //     }
+    // }
+
+
     function handleDrillDown(item) {
         if (item.children && !isAnimating) {
             menuStack.push(item.children);
-            renderMenu(item.children);
+            const currentItems = menuContent.querySelectorAll('.menu-item');
+            const currentBack = menuContent.querySelector('.menu-back'); // Chỉ lấy phần tử đầu tiên
+
+            if (currentBack) {
+                currentBack.style.transform = 'translateX(-40px)';
+                currentBack.style.transition = `transform 0.3s ease-out, opacity 0.3s ease-out`; // Không có delay
+            }
+
+            currentItems.forEach((el, index) => {
+                if (index === 1 || index === currentItems.length - 1) {
+                    // Item thứ 2 & cuối cùng di chuyển ngang (trái)
+                    el.style.transform = 'translateX(-40px)';
+                } else {
+                    // Các item còn lại di chuyển chéo xuống
+                    el.style.transform = 'translate(-40px, 40px)';
+                }
+                el.style.opacity = '0'; // Mờ dần
+                el.style.transition = `transform 0.3s ease-out, opacity 0.3s ease-out`; // Không có delay
+            });
+    
+                renderMenu(item.children);
         }
     }
-
+    
     function handleBack() {
         if (!isAnimating && menuStack.length > 1) {
-            menuStack.pop();
-            renderMenu(menuStack[menuStack.length - 1]);
+            const currentItems = menuContent.querySelectorAll('.menu-item');
+            const currentBack = menuContent.querySelector('.menu-back'); // Chỉ lấy phần tử đầu tiên
+
+            if (currentBack) {
+                currentBack.style.transform = 'translateX(40px)';
+                currentBack.style.transition = `transform 0.3s ease-out, opacity 0.3s ease-out`; // Không có delay
+            }
+
+            currentItems.forEach((el, index) => {
+                if (index === 1 || index === currentItems.length - 1) {
+                    // Item thứ 2 & cuối cùng di chuyển ngang (trái)
+                    el.style.transform = 'translateX(40px)';
+                } else {
+                    // Các item còn lại di chuyển chéo xuống
+                    el.style.transform = 'translate(40px, -40px)';
+                }
+                el.style.opacity = '0'; // Mờ dần
+                el.style.transition = `transform 0.3s ease-out, opacity 0.3s ease-out`; // Không có delay
+            });
+    
+                menuStack.pop();
+                renderMenu(menuStack[menuStack.length - 1]);
         }
     }
+    
 
     function toggleMenu() {
         if (isAnimating) return;
@@ -93,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuStack = [menuData];
             setTimeout(() => {
                 renderMenu(menuData);
-            }, 300);
+            }, 100);
         } else {
             isAnimating = true;
             menuContainer.classList.remove('menu-open');
@@ -101,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 menuContainer.style.display = 'none';
                 isAnimating = false;
-            }, 500);
+            }, 100);
         }
     }
 
