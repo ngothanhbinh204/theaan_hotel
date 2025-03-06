@@ -70,39 +70,52 @@ $transition: 0.3s ease;
     }
 
 }
-
-.menu-item {
-    border-bottom: 1px solid $border-color;
-    justify-content: space-between;
+.wrapper-item {
+    max-width: 100%;
     background: transparent;
-    transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 
+    transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 
     &:hover {
         background-color: $hover-bg;
-        svg {
-            transform: translateX(5px);
-
+        .menu-item {
+            svg {
+                transform: translateX(5px);
+    
+            }
+          
         }
+       
+    }
+    .menu-item {
+        max-width: 1360px;
+        margin: 0 auto;
+        justify-content: space-between;
+      
     }
 }
 
-.menu-back {
+.wrapper-item-back {
     color: #FFFFFF;
-    gap: 0.5rem;
     background: #2C2C2C;
 
-    svg {
-        rotate: 180deg;
-     
-    }
-    &:hover {
+    .menu-back {
+        max-width: 1360px;
+        margin: 0 auto;
+        gap: 0.5rem;
         svg {
-            transform: translateX(5px);
+            rotate: 180deg;
+         
         }
+        &:hover {
+            svg {
+                transform: translateX(5px);
+            }
+        }
+        
     }
-    
 }
+
 
 /* Animation classes */
 .menu-level {

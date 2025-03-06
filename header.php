@@ -73,7 +73,7 @@
             </div>
 
             <div id="menuContainer"
-                class="fixed inset-0 bg-white transform -translate-y-full transition-transform duration-300 overflow-hidden hidden">
+                class="fixed inset-0 bg-white transform -translate-y-full transition-transform duration-300 overflow-hidden">
                 <div class="container mx-auto wrapper_menu">
 
                     <div id="menuContent" class="transition-opacity duration-300">

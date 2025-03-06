@@ -9,58 +9,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderMenu(items) {
         if (isAnimating) return;
-        
+    
         isAnimating = true;
         const menuHtml = document.createElement('div');
         menuHtml.className = 'menu-level';
-
+    
         if (menuStack.length > 1) {
             const parentMenu = menuStack[menuStack.length - 2];
             const parentLabel = parentMenu.find(item => 
                 item.children === menuStack[menuStack.length - 1]
             )?.label || 'Main Menu';
-
+    
+            // Tạo wrapper bọc menu-back
+            const wrapperBack = document.createElement('div');
+            wrapperBack.className = 'wrapper-item-back';
+    
             const backButton = document.createElement('div');
             backButton.className = 'menu-back';
             backButton.innerHTML = `
-               <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 4.5L10 8.5L6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 4.5L10 8.5L6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-
                 ${parentLabel}
             `;
             backButton.onclick = handleBack;
-            menuHtml.appendChild(backButton);
+    
+            // Thêm menu-back vào wrapper-item
+            wrapperBack.appendChild(backButton);
+            menuHtml.appendChild(wrapperBack);
         }
-
+    
+        const menuLevel = document.createElement('div');
+        menuLevel.className = 'menu-level active';
+    
         items.forEach(item => {
+            const wrapperItem = document.createElement('div');
+            wrapperItem.className = 'wrapper-item';
+    
             const itemElement = document.createElement('div');
             itemElement.className = 'menu-item';
-            
+    
             if (item.children) {
                 itemElement.innerHTML = `
                     ${item.label}
                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 4.5L10 8.5L6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                        <path d="M6 4.5L10 8.5L6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 `;
                 itemElement.onclick = () => handleDrillDown(item);
             } else {
                 itemElement.innerHTML = `<a href="${item.url}" class="block w-full">${item.label}</a>`;
             }
-            
-            menuHtml.appendChild(itemElement);
+    
+            wrapperItem.appendChild(itemElement);
+            menuLevel.appendChild(wrapperItem);
         });
-
+    
+        // Thêm menu-level vào menuHtml
+        menuHtml.appendChild(menuLevel);
+    
         const currentContent = menuContent.querySelector('.menu-level');
         if (currentContent) {
             currentContent.style.opacity = '0';
         }
-
+    
         setTimeout(() => {
             menuContent.innerHTML = '';
             menuContent.appendChild(menuHtml);
-            
+    
             requestAnimationFrame(() => {
                 menuHtml.classList.add('active');
                 setTimeout(() => {
@@ -69,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, currentContent ? 300 : 0);
     }
+    
 
     function handleDrillDown(item) {
         if (item.children && !isAnimating) {
@@ -138,10 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         } else {
             isAnimating = true;
+            menuContainer.classList.add('menu-closing'); 
             menuContainer.classList.remove('menu-open');
             menuContent.innerHTML = '';
             setTimeout(() => {
-                menuContainer.style.display = 'none';
                 isAnimating = false;
             }, 300);
         }

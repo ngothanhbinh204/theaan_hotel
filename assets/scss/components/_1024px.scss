@@ -1,6 +1,32 @@
 /* Desktop (≥ 1024px) */
 @media (min-width: 1024px) {
 
-  
+    header.site-header {
+        display: block;
+        min-height: 112px;
+        .wrapper_header {
+          max-height: 100%;
+          padding-top: 25px;
+          padding-bottom: 25px;
+          .inner_wrapper_header {
+          
+            a.languages ,  .button_header{
+              display: flex;
+            }
+          }
+          .logo_custom{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0 auto;
+            max-width: 180px;
+            max-height: 72px;
+          }
+        }
+      }
+
+      a.button_check {
+        display: none ;
+       }
    
 }

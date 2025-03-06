@@ -27,7 +27,7 @@ module.exports = {
         },
       },
       maxWidth: {
-        container: "1312px", 
+        container: "1360px", 
       },
       fontFamily: {
         sans: ["Gilroy", "sans-serif" ],
