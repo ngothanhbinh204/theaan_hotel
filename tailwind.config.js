@@ -19,15 +19,15 @@ module.exports = {
         center: true, // Đảm bảo container luôn căn giữa
         padding: {
           DEFAULT: "20px", // Padding mặc định
-          // sm: "1.5rem",  // Padding cho màn hình nhỏ
-          // md: "1.5rem",  // Padding cho màn hình trung bình
+          sm: "20px",  // Padding cho màn hình nhỏ
+          md: "20px",  // Padding cho màn hình trung bình
           lg: "1.5rem",  // Padding cho màn hình lớn
           xl: "1.5rem",  // Padding cho màn hình rất lớn
           "2xl": "1.5rem", // Padding cho màn hình cực lớn 
         },
       },
       maxWidth: {
-        container: "1360px", 
+        container: "1312px", 
       },
       fontFamily: {
         sans: ["Gilroy", "sans-serif" ],

@@ -1,0 +1,122 @@
+@media (min-width: 768px) {
+    a.button_check {
+      display: none ;
+     }
+  
+     header.site-header {
+      display: block;
+      min-height: 112px;
+      .wrapper_header {
+        max-height: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        .inner_wrapper_header {
+          .button_header {
+            font-family: Gilroy;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: 1px;
+            vertical-align: middle;
+            max-height: 48px;
+    
+            padding: 12px 16px;
+            border: 1px solid #FFFFFF
+    
+          }
+        }
+        .logo_custom{
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          margin: 0 auto;
+          max-width: 180px;
+          max-height: 72px;
+        }
+      }
+    }
+  
+    #menuToggle {
+  
+      background: none;
+      width: 44px;
+      height: 44px;
+      padding: 0px;
+  
+      .wrapper_line {
+       
+      }
+    
+      .line_button {
+       
+      }
+    
+      span {
+      }
+    }
+
+    .menu-toggle.is-active {
+      .wrapper_line {
+        transform: rotate(45deg) translate(5px,5px);
+      }
+  
+      .line_button {
+        background-color: #000000;
+      }
+  
+      .line_button {
+        &:nth-child(2) {
+          opacity: 0;
+        }
+      }
+  
+      .line_button {
+        &:nth-child(1) {
+          transform: translate(2px,12px);
+        }
+      }
+  
+      .line_button {
+        &:nth-child(3) {
+          transform: translate(2px, -10px) rotate(90deg);
+        }
+      }
+  
+      span {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 0.3s ease-out;
+      }
+      
+  }
+
+  #menuContainer {
+  
+    #menuContent {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .wrapper_menu {
+      padding-top: 112px;
+    }
+}
+
+a.languages {
+  display: flex;
+  font-family: Gilroy;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.25px;
+  vertical-align: middle;
+  color: #fff;
+  flex-direction: row;
+  gap: 3px;
+  padding: 13px 16px;
+
+  svg {
+    rotate: 90deg;
+  }
+}
+}

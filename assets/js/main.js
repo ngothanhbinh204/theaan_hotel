@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
-    const closeMenu = document.getElementById('closeMenu');
     const menuContainer = document.getElementById('menuContainer');
     const menuContent = document.getElementById('menuContent');
     let menuStack = [menuData];
     let isAnimating = false;
+    
+    let isMenuOpen = false;
 
     function renderMenu(items) {
         if (isAnimating) return;
@@ -22,9 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const backButton = document.createElement('div');
             backButton.className = 'menu-back';
             backButton.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M15 18l-6-6 6-6"/>
+               <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 4.5L10 8.5L6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+
                 ${parentLabel}
             `;
             backButton.onclick = handleBack;
@@ -38,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item.children) {
                 itemElement.innerHTML = `
                     ${item.label}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 18l6-6-6-6"/>
-                    </svg>
+                    <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 4.5L10 8.5L6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
                 `;
                 itemElement.onclick = () => handleDrillDown(item);
             } else {
@@ -68,96 +70,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }, currentContent ? 300 : 0);
     }
 
-    // function handleDrillDown(item) {
-    //     if (item.children && !isAnimating) {
-    //         menuStack.push(item.children);
-    //         const currentItems = menuContent.querySelectorAll('.menu-item');
-
-    //         currentItems.forEach((el, index) => {
-    //             el.style.transform = 'translate(-20px, 20px)';
-    //             el.style.opacity = '0';
-    //             el.style.transition = `transform 0.1s ease-out ${index * 50}ms, opacity 0.1s ease-out ${index * 50}ms`;
-    //         });
-    //         renderMenu(item.children);
-    //     }
-    // }
-
-    // function handleBack() {
-    //     if (!isAnimating && menuStack.length > 1) {
-    //         const currentItems = menuContent.querySelectorAll('.menu-item');
-    //         currentItems.forEach((el, index) => {
-    //             el.style.transform = 'translate(-20px, 20px)';
-    //             el.style.opacity = '0';
-    //             el.style.transition = `transform 0.1s ease-out ${index * 50}ms, opacity 0.1s ease-out ${index * 50}ms`;
-    //         });
-    //         menuStack.pop();
-    //         renderMenu(menuStack[menuStack.length - 1]);
-    //     }
-    // }
-
-
     function handleDrillDown(item) {
         if (item.children && !isAnimating) {
             menuStack.push(item.children);
             const currentItems = menuContent.querySelectorAll('.menu-item');
-            const currentBack = menuContent.querySelector('.menu-back'); // Chỉ lấy phần tử đầu tiên
+            const currentBack = menuContent.querySelector('.menu-back');
 
             if (currentBack) {
                 currentBack.style.transform = 'translateX(-40px)';
-                currentBack.style.transition = `transform 0.3s ease-out, opacity 0.3s ease-out`; // Không có delay
+                currentBack.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
             }
 
             currentItems.forEach((el, index) => {
                 if (index === 1 || index === currentItems.length - 1) {
-                    // Item thứ 2 & cuối cùng di chuyển ngang (trái)
                     el.style.transform = 'translateX(-40px)';
                 } else {
-                    // Các item còn lại di chuyển chéo xuống
                     el.style.transform = 'translate(-40px, 40px)';
                 }
-                el.style.opacity = '0'; // Mờ dần
-                el.style.transition = `transform 0.3s ease-out, opacity 0.3s ease-out`; // Không có delay
+                el.style.opacity = '0';
+                el.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
             });
     
-                renderMenu(item.children);
+            renderMenu(item.children);
         }
     }
     
     function handleBack() {
         if (!isAnimating && menuStack.length > 1) {
             const currentItems = menuContent.querySelectorAll('.menu-item');
-            const currentBack = menuContent.querySelector('.menu-back'); // Chỉ lấy phần tử đầu tiên
+            const currentBack = menuContent.querySelector('.menu-back');
 
             if (currentBack) {
                 currentBack.style.transform = 'translateX(40px)';
-                currentBack.style.transition = `transform 0.3s ease-out, opacity 0.3s ease-out`; // Không có delay
+                currentBack.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
             }
 
             currentItems.forEach((el, index) => {
                 if (index === 1 || index === currentItems.length - 1) {
-                    // Item thứ 2 & cuối cùng di chuyển ngang (trái)
                     el.style.transform = 'translateX(40px)';
                 } else {
-                    // Các item còn lại di chuyển chéo xuống
                     el.style.transform = 'translate(40px, -40px)';
                 }
-                el.style.opacity = '0'; // Mờ dần
-                el.style.transition = `transform 0.3s ease-out, opacity 0.3s ease-out`; // Không có delay
+                el.style.opacity = '0';
+                el.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
             });
     
-                menuStack.pop();
-                renderMenu(menuStack[menuStack.length - 1]);
+            menuStack.pop();
+            renderMenu(menuStack[menuStack.length - 1]);
         }
     }
-    
 
     function toggleMenu() {
         if (isAnimating) return;
         
-        if (!menuContainer.classList.contains('menu-open')) {
+        isMenuOpen = !isMenuOpen;
+        menuToggle.classList.toggle('is-active');
+        header.classList.toggle('menu-opened'); // Thêm menu open
+
+        
+        if (isMenuOpen) {
             menuContainer.style.display = 'block';
-            // Force a reflow to ensure the display:block takes effect before adding the class
-            menuContainer.offsetHeight;
+            menuContainer.offsetHeight; // Force reflow
             menuContainer.classList.add('menu-open');
             menuStack = [menuData];
             setTimeout(() => {
@@ -170,33 +143,28 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 menuContainer.style.display = 'none';
                 isAnimating = false;
-            }, 100);
+            }, 300);
         }
     }
 
-    menuToggle.onclick = toggleMenu;
-    closeMenu.onclick = toggleMenu;
-});
+    menuToggle.addEventListener('click', toggleMenu);
 
-
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Add scroll behavior for header
     const header = document.getElementById("masthead");
-    if (!header) return;
-  
-    let ticking = false;
-  
-    window.addEventListener("scroll", function () {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                if (window.scrollY > 50) {
-                    header.classList.add("header_scroll");
-                } else {
-                    header.classList.remove("header_scroll");
-                }
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-  });
+    if (header) {
+        let ticking = false;
+        window.addEventListener("scroll", function () {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    if (window.scrollY > 50) {
+                        header.classList.add("header_scroll");
+                    } else {
+                        header.classList.remove("header_scroll");
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+});

@@ -29,7 +29,15 @@
 
     <header id="masthead" class="site-header">
         <nav class="container wrapper_header">
-            <div class="flex relative justify-between items-center">
+            <div class="flex relative justify-between items-center z-50 inner_wrapper_header">
+                <button id="menuToggle" class="flex flex-col items-center menu-toggle">
+                    <div class="wrapper_line flex flex-col">
+                        <div class="line_button bg-white rounded-full"></div>
+                        <div class="line_button bg-white rounded-full"></div>
+                        <div class="line_button bg-white rounded-full"></div>
+                    </div>
+                    <span class="text-white uppercase">Menu</span>
+                </button>
                 <div class="logo_custom">
                     <?php
                     if (has_custom_logo()) {
@@ -39,31 +47,37 @@
                     }
                     ?>
                 </div>
-                <button id="menuToggle" class="flex flex-col items-center">
-                    <div class="wrapper_line flex flex-col">
-                        <div class="line_button bg-white rounded-full"></div>
-                        <div class="line_button bg-white rounded-full"></div>
-                        <div class="line_button bg-white rounded-full"></div>
-                    </div>
-                    <span class="text-white uppercase">Menu</span>
-                </button>
+
+                <div class="wrapper_call_btn flex flex-row gap-x-2 items-end    ">
+                    <a href="#" id="ButtonCall" class="button_call flex flex-col items-center">
+                        <div class="icon_call">
+                            <img src="/wp-content/uploads/2025/03/phone-call.svg" alt="">
+                        </div>
+                        <span class="text-white uppercase">CALL</span>
+                    </a>
+                    <a class="languages" href="#">
+                        ENG
+                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 4.5L10 8.5L6 12.5" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+
+                    <a class=" button_header" href="#">
+                        CHECK AVAILABILITY
+                    </a>
+                </div>
+
 
 
             </div>
 
             <div id="menuContainer"
-                class="fixed inset-0 bg-white transform -translate-y-full transition-transform duration-300 z-50 overflow-hidden hidden">
-                <div class="container mx-auto px-4 py-4">
-                    <div class="flex justify-between items-center mb-8">
-                        <h2 class="text-2xl font-bold">Menu</h2>
-                        <button id="closeMenu" class="p-2 hover:bg-gray-100 rounded-lg text-2xl">
-                            ×
-                        </button>
-                    </div>
+                class="fixed inset-0 bg-white transform -translate-y-full transition-transform duration-300 overflow-hidden hidden">
+                <div class="container mx-auto wrapper_menu">
 
                     <div id="menuContent" class="transition-opacity duration-300">
                         <?php
-                        // The menu content will be populated by JavaScript
                         wp_nav_menu(array(
                             'theme_location' => 'primary-menu',
                             'container' => false,
@@ -71,6 +85,10 @@
                         ));
                         ?>
                     </div>
+
+                    <a class="button_check" href="#">
+                        CHECK AVAILABILITY
+                    </a>
                 </div>
             </div>
         </nav>

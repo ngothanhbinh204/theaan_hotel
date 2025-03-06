@@ -239,7 +239,6 @@ function theme_scripts()
 		true
 	);
 
-	// Pass menu data to JavaScript
 	$menu_items = wp_get_nav_menu_items('primary-menu');
 	$menu_data = convert_menu_items_to_tree($menu_items);
 
@@ -274,3 +273,9 @@ function convert_menu_items_to_tree($items, $parent_id = 0)
 
 	return $branch;
 }
+
+function register_footer_menu()
+{
+	register_nav_menu('footer_menu', __('Footer Menu'));
+}
+add_action('after_setup_theme', 'register_footer_menu');

@@ -9,7 +9,7 @@ License: GNU General Public License v2 or later
 
 /* Variables */
 $border-color: #f1f1f1;
-$hover-bg: #f9fafb;
+$hover-bg: #f9fafb8b;
 $text-color: #666;
 $transition: 0.3s ease;
 
@@ -37,6 +37,12 @@ $transition: 0.3s ease;
     transform: translateY(-100%);
     transition: transform $transition;
     display: none;
+
+    #menuContent {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+  
 }
 
 .menu-open {
@@ -45,58 +51,81 @@ $transition: 0.3s ease;
 }
 
 .menu-item, .menu-back {
-    padding: 1rem 1.5rem;
-    font-size: 1.25rem;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
     cursor: pointer;
     transition: background-color 0.2s;
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 140%;
+    letter-spacing: 2px;
+    vertical-align: middle;
+    text-transform: uppercase;
+
+    svg {
+        transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    
+    }
+
 }
 
 .menu-item {
     border-bottom: 1px solid $border-color;
     justify-content: space-between;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    background: transparent;
+    transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 
 
     &:hover {
         background-color: $hover-bg;
+        svg {
+            transform: translateX(5px);
+
+        }
     }
 }
 
 .menu-back {
-    color: $text-color;
+    color: #FFFFFF;
     gap: 0.5rem;
-    
-    &:hover {
-        background-color: $hover-bg;
+    background: #2C2C2C;
+
+    svg {
+        rotate: 180deg;
+     
     }
+    &:hover {
+        svg {
+            transform: translateX(5px);
+        }
+    }
+    
 }
 
 /* Animation classes */
 .menu-level {
     opacity: 0;
     transition: opacity $transition;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
 
     &.active {
         opacity: 1;
         .menu-item {
-            // transform: translate(-10px, 10px);
+         
 
         }
     }
 }
 
-/* Header styles */
-.site-header {
-    // background-color: white;
-    // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-}
-
-/* Utility classes */
-.bg-white { background-color: white; }
+// .bg-white { background-color: white; }
 .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
 .hidden { display: none; }
 .fixed { position: fixed; }
 .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
 .z-50 { z-index: 50; }
+
+
