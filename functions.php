@@ -144,19 +144,30 @@ add_action('widgets_init', 'theann_hotel_widgets_init');
 
 function theann_hotel_assets()
 {
-	// Enqueue theme style
 	wp_enqueue_style('theann-hotel-style', get_stylesheet_directory_uri() . '/dist/css/style.min.css', array(), _S_VERSION);
 
-	// Enqueue Foundation (nếu cần)
 	if (is_front_page()) {
-		// wp_enqueue_style('foundation-css', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css');
-		// wp_enqueue_script('foundation-js', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js', array('jquery'), '', true);
+
+
+		wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array('jquery'), '', true);
+		// wp_enqueue_style('glide-css', 'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css');
+		// wp_enqueue_style('glide-css-2', 'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css');
+
+		// wp_enqueue_script('glide-js', 'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js', array('jquery'), '', true);
+
+		// wp_enqueue_style('flickity-css', ' https://unpkg.com/flickity@2/dist/flickity.min.css');
+		// wp_enqueue_script('flickity-js', 'https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js', array('jquery'), '', true);
+
+		wp_enqueue_style('glide-css', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css');
+		wp_enqueue_style('glide-css-2', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/themes/splide-skyblue.min.css');
+
+		wp_enqueue_script('glide-js', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js', array('jquery'), '', true);
 	}
 
-	// Enqueue Navigation Script
+	wp_enqueue_script('flickity_main-js', get_template_directory_uri() . './assets/js/flickity_main.js', array(), '1.0.0', true);
+
 	wp_enqueue_script('theann-hotel-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
-	// Enqueue comment-reply nếu có bình luận mở
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}

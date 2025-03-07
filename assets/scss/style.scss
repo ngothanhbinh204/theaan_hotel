@@ -8,6 +8,27 @@
 @import "./components/navbars";
 @import "./components/menu";
 
+.swiper {
+  position: relative;
+  overflow: visible;
+  clip-path: inset(0 -100% 0px 50px);
+
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  width: 560px !important; /* Đảm bảo mỗi slide giữ đúng kích thước */
+  height: 560px !important;
+  flex-shrink: 0; /* Không co lại khi Swiper xử lý */
+}
+
+.swiperRoooms  {
+  width: 100%;
+  overflow: visible !important;
+}
 
 $color-body: #F2F0E9;
 $text-color: #363636;
@@ -253,8 +274,6 @@ header.site-header.menu-opened {
 
 .section_general {
    margin: 70px 0px;
-   
-
 }
 
 .amennities {
@@ -362,6 +381,10 @@ header.site-header.menu-opened {
     }
   }
 }
+
+.apartment {
+  margin-bottom: 24px;
+}
 .line_space {
   background: #0000008C;
   height: 1px;
@@ -371,10 +394,9 @@ header.site-header.menu-opened {
 
 // ROOMS SECTION
 .list_rooms {
-  display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  justify-content: center;
+  // display: grid;
+  // gap: 24px;
+  // justify-content: center;
   row-gap: 24px;
 
   .item_room {
@@ -382,13 +404,12 @@ header.site-header.menu-opened {
     display: flex;
     flex-direction: column;
     row-gap: 15px;
-    position: relative;
     min-height: 335px;
     min-width: 335px;
     justify-content: end;
     align-items: center;
-
     padding: 0px 14px 19px 14px;
+    position: relative;
 
     h3 {
       font-family: Gilroy;
@@ -435,7 +456,6 @@ header.site-header.menu-opened {
           width: 20px;
           height: 20px;
           img {
-            // filter: invert(1);
             width: 100%;
           }
         }
@@ -455,6 +475,11 @@ header.site-header.menu-opened {
     }
     .room_image {
       z-index: -2;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       img {
         object-position: 43% center;
         width: 100%;
@@ -464,6 +489,15 @@ header.site-header.menu-opened {
     }
 
    
+  }
+}
+
+.splide__track  {
+  clip-path: inset(0 -100% 0px 0px);
+  overflow: visible !important;
+
+  .splice_item {
+    max-width: 560px;
   }
 }
 
