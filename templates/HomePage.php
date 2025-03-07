@@ -47,116 +47,11 @@ get_header();
 
 
     <section class="section_general">
-        <div class="container">
+        <div class="container full_w_cus">
             <div class="heading_address apartment  flex flex-col items-center">
                 <h2>ROOMS & APARTMENTS</h2>
                 <p>Unwind with panoramic views that capture the city's vibrant charm.</p>
             </div>
-            <!-- 
-            <div class="glide">
-                <div class="glide__track" data-glide-el="track">
-                    <ul class="glide__slides list_rooms">
-                        <?php for ($i = 0; $i <= 8; $i++) { ?>
-                        <li class="glide__slide">
-                            <div class="item_room ">
-                                <div class="room_image">
-                                    <img src="/wp-content/uploads/2025/03/rooms.jpg" alt="">
-                                </div>
-                                <h3 class="title">City King</h3>
-                                <p class="size">Average Size: 28 - 30 m²</p>
-                                <div class="sub_amenities">
-                                    <?php for ($j = 0; $j < 6; $j++) { ?>
-                                    <div class="item_">
-                                        <div class="item-image">
-                                            <img src="/wp-content/uploads/2025/03/double-bed_2.svg" alt=""
-                                                class="item-img">
-                                        </div>
-                                        <p class="item-text">1 King Bed</p>
-                                    </div>
-                                    <?php } ?>
-                                </div>
-                                <a class="button_details" href="#">View Details</a>
-                            </div>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </div>
-
-                <div class="glide__arrows" data-glide-el="controls">
-                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Prev</button>
-                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
-                </div>
-            </div> -->
-
-
-
-
-
-
-            <!-- <div class="glide">
-                <div class="glide__track" data-glide-el="track">
-                    <ul class="glide__slides list_rooms">
-                        <?php for ($i = 0; $i <= 8; $i++) { ?>
-                        <li class="glide__slide">
-                            <div class="item_room ">
-                                <div class="room_image">
-                                    <img src="/wp-content/uploads/2025/03/rooms.jpg" alt="">
-                                </div>
-                                <h3 class="title">City King</h3>
-                                <p class="size">Average Size: 28 - 30 m²</p>
-                                <div class="sub_amenities">
-                                    <?php for ($j = 0; $j < 6; $j++) { ?>
-                                    <div class="item_">
-                                        <div class="item-image">
-                                            <img src="/wp-content/uploads/2025/03/double-bed_2.svg" alt=""
-                                                class="item-img">
-                                        </div>
-                                        <p class="item-text">1 King Bed</p>
-                                    </div>
-                                    <?php } ?>
-                                </div>
-                                <a class="button_details" href="#">View Details</a>
-                            </div>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </div>
-
-                <div class="glide__arrows" data-glide-el="controls">
-                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Prev</button>
-                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
-                </div>
-            </div> -->
-            <!-- <section class="splide" id="roomSlider" role="group" aria-label="Rooms Slider">
-                <div class="splide__track">
-                    <ul class="splide__list list_rooms">
-                        <?php for ($i = 0; $i <= 8; $i++) { ?>
-                        <li class="splide__slide">
-                            <div class="item_room">
-                                <div class="room_image">
-                                    <img src="/wp-content/uploads/2025/03/rooms.jpg" alt="">
-                                </div>
-                                <h3 class="title">City King</h3>
-                                <p class="size">Average Size: 28 - 30 m²</p>
-                                <div class="sub_amenities">
-                                    <?php for ($j = 0; $j < 6; $j++) { ?>
-                                    <div class="item_">
-                                        <div class="item-image">
-                                            <img src="/wp-content/uploads/2025/03/double-bed_2.svg" alt=""
-                                                class="item-img">
-                                        </div>
-                                        <p class="item-text">1 King Bed</p>
-                                    </div>
-                                    <?php } ?>
-                                </div>
-                                <a class="button_details" href="#">View Details</a>
-                            </div>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            </section> -->
-
 
             <section class="splide" id="roomSlider" role="group" aria-label="Rooms Slider">
                 <div class="splide__track">
@@ -186,34 +81,16 @@ get_header();
                         <?php } ?>
                     </ul>
                 </div>
+                <div class="wrapper_button">
+                    <button id="customPrev" class="custom-arrow prev">
+                        <img src="/wp-content/uploads/2025/03/arrow-left.svg" alt="Previous">
+                    </button>
+
+                    <button id="customNext" class="custom-arrow next">
+                        <img src="/wp-content/uploads/2025/03/arrow-left.svg" alt="Next">
+                    </button>
+                </div>
             </section>
-
-
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                new Splide('#roomSlider', {
-                    type: 'slide', // Không tự động loop
-                    fixedWidth: 560,
-                    perPage: 2, // Hiển thị 2 item trên desktop
-                    gap: 20, // Khoảng cách giữa các item
-                    breakpoints: {
-                        1024: {
-                            perPage: 2
-                        }, // Tablet vẫn hiển thị 2 item
-                        768: {
-                            perPage: 1
-                        }, // Mobile hiển thị 1 item
-                    },
-                    pagination: false, // Ẩn pagination
-                    arrows: true, // Hiển thị nút điều hướng
-                }).mount();
-            });
-            </script>
-
-
-
-
-
     </section>
 
 
