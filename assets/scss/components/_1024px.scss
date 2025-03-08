@@ -1,5 +1,6 @@
 /* Desktop (≥ 1024px) */
 @media (min-width: 1024px) {
+  
 
     header.site-header {
         display: block;
@@ -29,4 +30,141 @@
         display: none ;
        }
    
+}
+
+@media (min-width: 1140px) {
+  .ss_room_include {
+    margin: 163px 0px !important;
+    .list_include {
+      .wrapper_include {
+        flex-direction: row;
+        min-height: auto;
+        padding: 36px 92px;
+
+        align-items: center;
+  
+        .title_sub {
+          h3 {
+            margin-bottom: 12px;
+          }
+        
+        }
+  
+        p {
+          font-family: Gilroy;
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 130%;
+          letter-spacing: 1.25px;
+        }
+    
+        .list_inc_text {
+          row-gap: 16px;
+          flex-direction: row;
+          .col_left, .col_right {
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+            width: 365px;
+          }
+          p.include_text {
+            line-height: 140%;
+            letter-spacing: 1.25px;
+          }
+  
+        }
+
+        .others {
+          
+          .list_inc_text {
+            text-align: center;
+            row-gap: 16px;
+            width: 777px;
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+
+@media (min-width: 1312px) {
+  .container_dining {
+    max-width: 1512px !important;
+    padding-left: 32px;
+    padding-right: 100px;
+  }
+}
+@media (min-width: 1360px) {
+  .page_rooms  {
+    .heading_address {
+      row-gap: 42px;
+      margin-bottom: 150px;
+    
+        p {
+            max-width: 954px;
+            margin-top: 0px;
+              }
+          }
+    
+          .amennities {
+            display: flex;
+            flex-direction: column;
+            row-gap: 56px;
+        
+            .row {
+              // margin: 0 auto;
+              .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(153px, 1fr)) !important; 
+                // grid-template-columns: repeat(12, 1fr);
+                grid-template-rows: repeat(1, 1fr) !important;
+                column-gap: 32px; /* Khoảng cách giữa các cột */
+                row-gap: 35px; /* Khoảng cách giữa các hàng */
+                justify-content: center;
+                gap: 35px 32px;
+                min-width: 100%;
+                .item_amenities {
+                  width: 100%;    
+                  p {
+                    padding: 0 8px;
+                  }
+                }
+    
+              
+              }
+
+              .item_amenities {
+                grid-column: auto !important;
+                grid-row: auto !important;
+              }
+              
+          
+    
+              .grid2 {
+                display: flex;
+                .item_amenities {
+                  width: 153px;
+                }
+              }
+            }
+       
+           .wrapper_amennities {
+            display: flex;
+            flex-direction: column;
+            row-gap: 24px;
+            width: 100%;
+            .row {
+              padding: 12px 24px;
+            }
+            .grid {
+              
+            }
+           }
+            
+        
+          }
+    }
+    
 }

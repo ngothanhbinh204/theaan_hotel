@@ -2,8 +2,85 @@
   .ctn_ig {
     margin-top: 130px;
   }
+
+  .container_rooms {
+    .list_rooms {
+      .room-box {   
+      .slider {
+        max-height: 440px;
+      }   
+    
+      .nav-button {
+       
+        &.prev {
+          left: 25%;
+        }
+        
+        &.next {
+          right: 25%;
+        
+        }
+    
+      }
+  
+      .expand-button {
+            top:unset;
+            bottom: 24px;
+            right: 34px;
+            border: none;
+
+          }
+      }
+    }
+  
+  }
+
+  .container_rooms {
+    .list_dining.list_rooms {
+      .room-box {   
+      .slider {
+        max-height: 100%;
+        height: 100% !important;
+      }   
+    
+      .nav-button {
+       
+        &.prev {
+          left: 25%;
+        }
+        
+        &.next {
+          right: 25%;
+        
+        }
+    
+      }
+  
+      .expand-button {
+            top:unset;
+            bottom: 24px;
+            right: 34px;
+            border: none;
+
+          }
+      }
+    }
+  
+  }
+  
+
 }
 @media (min-width: 768px) {
+  .container_dining {
+    max-width: 1512px !important;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .box_contact {
+    max-width: 426px;
+    margin: 0 auto;
+  }
 
   .section_general {
     margin: 150px 0px;
@@ -514,5 +591,275 @@ a.button_details {
   margin-bottom: 93px !important;
 }
 
+.page_rooms  {
+.heading_address {
+  row-gap: 42px;
+  margin-bottom: 150px;
+
+    p {
+        max-width: 954px;
+        margin-top: 0px;
+          }
+      }
+
+      .amennities {
+        display: flex;
+        flex-direction: column;
+        row-gap: 56px;
+    
+        .row {
+          // margin: 0 auto;
+          .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr) !important;
+            grid-template-rows: repeat(2, 1fr) !important;
+            column-gap: 32px; /* Khoảng cách giữa các cột */
+            row-gap: 35px; /* Khoảng cách giữa các hàng */
+            justify-content: center;
+            gap: 35px 32px;
+            min-width: 100%;
+            .item_amenities {
+              width: 100%;
+
+              p {
+                padding: 0 8px;
+              }
+            }
+
+            .grid {
+              display: grid;
+              grid-template-columns: repeat(12, 1fr);
+              grid-template-rows: repeat(5, 1fr);
+              gap: 8px;
+              justify-content: center;
+              min-width: 100%;
+          }
+          
+          .item_amenities {
+              width: 100%;
+          }
+          
+          .item_amenities p {
+              padding: 0 8px;
+          }
+          
+          /* Hàng 1 */
+          .item_amenities:nth-child(1) {
+            grid-column: 1 / span 3;
+        }
+        .item_amenities:nth-child(2) {
+            grid-column: 4 / span 3;
+        }
+        .item_amenities:nth-child(3) {
+            grid-column: 7 / span 3;
+        }
+        .item_amenities:nth-child(4) {
+            grid-column: 10 / span 3;
+        }
+        
+        /* Hàng 2 */
+        .item_amenities:nth-child(5) {
+            grid-column: 3 / span 2;
+            grid-row: 2;
+        }
+        .item_amenities:nth-child(6) {
+            grid-column: 6 / span 2;
+            grid-row: 2;
+        }
+        .item_amenities:nth-child(7) {
+            grid-column: 9 / span 2;
+            grid-row: 2;
+        }
+        
+          
+
+          
+          }
+          
+      
+
+          .grid2 {
+            display: flex;
+            .item_amenities {
+              width: 153px;
+            }
+          }
+        }
+   
+       .wrapper_amennities {
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+        width: 100%;
+        .row {
+          padding: 12px 24px;
+        }
+        .grid {
+          
+        }
+       }
+        
+    
+      }
 }
+.ss_room_include {
+  // margin: 163px 0px !important;
+}
+
+.ss_details_info {
+  .ctn {
+    max-width: 1360px !important;
+  }
+}
+.container_rooms {
+
+  .list_rooms {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 120px 32px ;
+    .room-box {   
+    .slider {
+      height: 440px;
+    }   
+  
+    .nav-button {
+     
+      &.prev {
+        left: 25%;
+      }
+      
+      &.next {
+        right: 25%;
+      
+      }
+  
+    }
+
+    .expand-button {
+          top:unset;
+          bottom: 24px;
+          right: 34px;
+          border: none;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          z-index: 2;
+        }
+    }
+  }
+
+}
+
+.room_detail {
+  .box_info {
+    max-width: 648px;
+
+    .list_amenities {
+      gap: 32px 24px;
+     
+     }
+  }
+  
+}
+
+.box_text_icon_ame {
+  width: 100%;
+} 
+
+
+.list_dining {
+  .box_dining {
+    color: #363636;
+    .item_onlyImage {
+
+    }
+
+    .group_info {
+      .title_des {
+      h2.title {
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 120%;
+        letter-spacing: 2.2px;
+        vertical-align: middle;
+        text-transform: uppercase;
+         margin-bottom: 18px;
+        }
+
+        p.description {
+          font-family: Gilroy;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 32px;
+          letter-spacing: 1px;
+          text-align: justify;
+          vertical-align: middle;
+          color: #00000080;
+        }
+      }
+
+      .list_info {
+
+        .item {
+          font-family: Gilroy;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 120%;
+          letter-spacing: 1.25px;
+          vertical-align: middle;
+          p {
+            font-weight: 700;
+
+          }
+        }
+
+      }
+
+      a.button_details {
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 140%;
+        letter-spacing: 2px;
+        vertical-align: middle;
+        
+        color: #363636;
+        border-bottom: 1px solid #000000;
+        padding: 4px 0px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.container_rooms {
+
+  .list_dining.list_rooms {
+     grid-template-columns: repeat(1,minmax(0,1fr)) !important;
+    .room-box {
+    
+     .slider {
+       height: auto;
+       position: relative;
+       overflow: hidden;
+       &::before{
+         content: none !important;
+       } 
+        
+     }
+   
+     button {
+       z-index: 2;
+     }
+     
+     .slides-container {
+       height: 100% !important;
+     }
+   }
+ }
+ }
+
+}
+
+
 

@@ -19,7 +19,7 @@ get_header();
     <!-- Info TheAn -->
 
     <section class="section_general ss_info page_rooms">
-        <div class="container flex flex-col items-center gap-y-[70px]">
+        <div class="container flex flex-col items-center">
             <div class="heading_address flex flex-col items-center">
                 <h2>“Sleep is the best mediation" - dalai lama</h2>
                 <p>At The Ann Hanoi, our rooms and apartments are designed for ultimate comfort and relaxation. Each
@@ -48,9 +48,12 @@ Wifi</p>
                     </div>
 
                     <div class="row">
-                        <div class="grid">
+                        <?php
+                        $item_on_row = 4;
+                        ?>
+                        <div class="grid <?php echo ($item_on_row < 7) ? 'grid2' : 'grid1'; ?>">
                             <?php
-                            for ($i = 0; $i <= 3; $i++) {
+                            for ($i = 0; $i <= $item_on_row; $i++) {
                                 echo '<div class="item_amenities">
                         <div class="item-image">
                         <img src="http://theannhotel.local/wp-content/uploads/2025/03/wifi.svg" alt="" class="item-img">
@@ -71,12 +74,7 @@ Wifi</p>
 
 
     <section class="section_general">
-        <div class="container full_w_cus">
-            <div class="heading_address apartment  flex flex-col items-center">
-                <h2>ROOMS & APARTMENTS</h2>
-                <p>Unwind with panoramic views that capture the city's vibrant charm.</p>
-            </div>
-
+        <div class="container">
             <div class="container_rooms">
                 <div class="list_rooms">
                     <?php
@@ -86,40 +84,8 @@ Wifi</p>
                     $amenity_icon = "/wp-content/uploads/2025/03/double-bed_2.svg";
 
                     for ($i = 0; $i < 4; $i++) { ?>
-                    <div class="item_room room-box" data-room-id="city-king">
-                        <div class="slider">
-                            <div class="slides-container">
-                                <?php for ($k = 0; $k < 3; $k++) { ?>
-                                <img src="<?= $room_image; ?>" alt="City King room" class="slide">
-                                <?php } ?>
-                            </div>
+                    <?php get_template_part('template-parts/room_item'); ?>
 
-                            <button class="nav-button prev">
-                                <img src="<?= $arrow_left; ?>" alt="Previous">
-                            </button>
-                            <button class="nav-button next">
-                                <img src="<?= $arrow_left; ?>" alt="Next">
-                            </button>
-                            <button class="expand-button">
-                                <img src="<?= $expand_btn; ?>" alt="Expand">
-                            </button>
-                        </div>
-
-                        <h3 class="title">City King</h3>
-                        <div class="sub_amenities">
-                            <?php for ($j = 0; $j < 6; $j++) { ?>
-                            <div class="item_">
-                                <div class="item-image">
-                                    <img src="<?= $amenity_icon; ?>" alt="Amenity" class="item-img">
-                                </div>
-                                <p class="item-text">1 King Bed</p>
-                            </div>
-                            <?php } ?>
-                        </div>
-
-                        <p class="size">Average Size: 28 - 30 m²</p>
-                        <a class="button_details" href="#">View Details</a>
-                    </div>
                     <?php } ?>
                 </div>
 
@@ -128,13 +94,72 @@ Wifi</p>
     </section>
 
 
-    <?php get_template_part('template-parts/section_guest'); ?>
+    <section class="section_general md:max-w-[1312px] md:!mb-9 !mx-auto ss_faq bg-white">
+        <div class="container py-10 md:[padding:50px_28px]">
+            <h2 class="title">
+                FAQs
+            </h2>
 
+            <div class="box_content_faq flex flex-col gap-y-8">
+                <div class="item_content">
+                    <h4>Cancellation Policy:</h4>
+                    <p> <span>Pay Now Rates:</span> Non-refundable, fully pre-paid. You will not receive a refund on
+                        these rates, even
+                        with 24 hours notice or more of cancellation.
+                    </p>
+                    <p>
+                        <span>Pay Later Rates:</span> Pay Later reservations require a
+                        1 night deposit, taken at time of booking. For any cancellations on Pay Later Rates for a
+                        standard guestroom, notice is required 24hours before arrival to avoid penalty fee. 72 hours
+                        notice required on Specialty Units, including Neighboring/Connecting rooms and Apartments.
+                    </p>
+                </div>
+                <div class="item_content">
+                    <h4>Cancellation Policy:</h4>
+                    <p> <span>Pay Now Rates:</span> Non-refundable, fully pre-paid. You will not receive a refund on
+                        these rates, even
+                        with 24 hours notice or more of cancellation.
+                        <span>Pay Later Rates:</span> Pay Later reservations require a
+                        1 night deposit, taken at time of booking. For any cancellations on Pay Later Rates for a
+                        standard guestroom, notice is required 24hours before arrival to avoid penalty fee. 72 hours
+                        notice required on Specialty Units, including Neighboring/Connecting rooms and Apartments.
+                    </p>
+                </div>
+                <div class="item_content">
+                    <h4>Guaranteed Reservation:</h4>
+                    <p>
+                        Reservations must be guaranteed by a major credit card when you book. Blackout dates are subject
+                        to their own rules. For security purposes, please provide a valid government or state-issued
+                        photo ID at check-in. To cover incidentals, we’ll hold a deposit on your credit card.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="section_general md:!mt-0">
+        <div class="container">
+            <div class="box_contact bg-white px-4 py-8">
+                <h4>
+                    Reservation Inquiries
+                </h4>
+                <div class="list_info_ct flex flex-col gap-y-[10px]">
+                    <div class="item flex flex-row justify-center items-center gap-x-2">
+                        <p>TEL:</p>
+                        <a href="#">+84-24-3871-3838</a>
+                        <div class="icon">
+                            <img src="http://theannhotel.local/wp-content/uploads/2025/03/phone-call.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="item flex flex-row justify-center items-center gap-x-2">
+                        <p>Email:</p>
+                        <a class="a_email" href="#">reservations@theann.com.vn</a>
 
-
-
-
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Fullscreen Gallery -->
     <div class="fullscreen-gallery">
         <button class="close-button">×</button>

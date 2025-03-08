@@ -19,7 +19,7 @@
    min-width: auto !important;
    
     .slider {
-      height: 230px;
+      height: auto;
       position: relative;
       overflow: hidden;
       &::before{
@@ -114,11 +114,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.75);
     z-index: 1000;
 
+    pointer-events: none; 
+  visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     &.active{
     display: block ;
+     pointer-events: auto; 
+    visibility: visible;
+    opacity: 1;
     }
   }
   
@@ -130,16 +137,14 @@
     left: 0;
     transform: translateY(-50%);
     width: 100%;
-    height: 80vh;
+    height: 25vh;
     display: flex;
-    gap: 1rem;
-    padding: 1rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    
         img {
+        max-height: 100px;
         height: 100%;
-        flex: 0 0 auto;
+        flex: 1 1 0%;
         object-fit: contain;
         scroll-snap-align: center;
       }
@@ -160,3 +165,63 @@
   
 
   
+@media (max-width: 600px) {
+  .container_rooms {
+
+    .list_rooms {
+    
+      .room-box {
+     
+      .slider {
+        height: auto;
+        position: relative;
+        overflow: hidden;
+        &::before{
+          content: "" !important;
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0.04%, rgba(0, 0, 0, 0) 42.03%);
+        } 
+         
+      }
+    
+      button {
+        z-index: 2;
+      }
+      
+      .slides-container {
+        height: 230px !important;
+      }
+    }
+  }
+  }
+
+
+  .container_rooms {
+
+   .list_dining.list_rooms {
+      // grid-template-columns: repeat(1,minmax(0,1fr)) !important;
+     .room-box {
+     
+      .slider {
+        height: auto;
+        position: relative;
+        overflow: hidden;
+        &::before{
+          content: none !important;
+        } 
+         
+      }
+    
+      button {
+        z-index: 2;
+      }
+      
+      .slides-container {
+        height: 350px !important;
+      }
+    }
+  }
+  }
+}
