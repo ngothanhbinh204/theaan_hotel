@@ -185,3 +185,80 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+
+// Slider Image Rooms
+document.addEventListener('DOMContentLoaded', () => {
+const roomData = {
+    'city-king': [
+        "http://theannhotel.local/wp-content/uploads/2025/03/rooms.jpg",
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80"
+    ],
+    'city-twin': [
+        "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80"
+    ]
+};
+
+// Initialize all room boxes
+document.querySelectorAll('.room-box').forEach(roomBox => {
+    const roomId = roomBox.dataset.roomId;
+    const slidesContainer = roomBox.querySelector('.slides-container');
+    const slides = roomBox.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Navigation functions
+    function showSlide(index) {
+        currentSlide = (index + totalSlides) % totalSlides;
+        slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Initialize first slide
+    showSlide(0);
+
+    // Event listeners for navigation
+    roomBox.querySelector('.prev').addEventListener('click', () => {
+        showSlide(currentSlide - 1);
+    });
+
+    roomBox.querySelector('.next').addEventListener('click', () => {
+        showSlide(currentSlide + 1);
+    });
+
+    // Expand button click handler
+    roomBox.querySelector('.expand-button').addEventListener('click', () => {
+        console.log('Expand clicked');
+        const gallery = document.querySelector('.fullscreen-gallery');
+        const galleryContent = gallery.querySelector('.gallery-content');
+
+        // Clear previous content
+        galleryContent.innerHTML = '';
+
+        // Add all images for this room
+        roomData[roomId].forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            galleryContent.appendChild(img);
+        });
+
+        gallery.classList.add('active');
+    });
+});
+
+// Close button for fullscreen gallery
+document.querySelector('.fullscreen-gallery .close-button').addEventListener('click', () => {
+    document.querySelector('.fullscreen-gallery').classList.remove('active');
+});
+
+// Close gallery with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelector('.fullscreen-gallery').classList.remove('active');
+    }
+});
+
+});

@@ -23,7 +23,7 @@
                 </div>
                 <div class="content flex flex-col gap-y-2">
                     <p class="content_title line-clamp-1">
-                        Ann Hotel..Hanoi..excellent staff
+                        AnnHotel..Hanoi..excellent staff
                     </p>
                     <p class="main_content line-clamp-6">
                         We spent two nights in the Ann hotel in Hanoi Vietnam. The hotel was very clean,
@@ -42,6 +42,16 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+        <div class="wrapper_button">
+            <button id="customPrev" class="custom-arrow prev">
+                <img src="/wp-content/uploads/2025/03/arrow-left.svg" alt="Previous">
+            </button>
+
+            <button id="customNext" class="custom-arrow next">
+                <img src="/wp-content/uploads/2025/03/arrow-left.svg" alt="Next">
+            </button>
         </div>
     </div>
 </section>

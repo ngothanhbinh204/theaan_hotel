@@ -155,8 +155,8 @@ get_header();
         <?php get_template_part('template-parts/section_guest'); ?>
 
 
-        <section class="section_general px-0">
-            <div class="container px-0">
+        <section class="section_general px-0 relative ss_gallery_home">
+            <div class="container px-0 max-w-cus ">
                 <div class="grid grid-cols-5 gallery_grid">
                     <?php
                     for ($i = 0; $i < 15; $i++) {
@@ -168,7 +168,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="container mt-[100px] ">
+            <div class="container ctn_ig ">
                 <div class="hashtag flex flex-row justify-between">
                     <p class="text_">
                         #theannhanoi
@@ -183,9 +183,9 @@ get_header();
         </section>
 
 
-        <section class="section_general">
-            <div class="container ss_directions flex flex-col gap-y-10">
-                <div class="top_direction flex flex-col items-start gap-y-4">
+        <section class="section_general direction_ss">
+            <div class="container ss_directions flex flex-col md:flex-row md:py-10 md:items-center gap-y-10">
+                <div class="top_direction flex flex-col items-start gap-y-4 md:flex-1">
                     <div class="heading_address">
                         <h2><span>
                                 DIRECTIONS To
@@ -198,8 +198,11 @@ get_header();
                     <a class="btn_open_map" href="#">
                         Open Map
                     </a>
+                    <a class="btn_get_direc" href="#">
+                        Get Direction
+                    </a>
                 </div>
-                <div class="map">
+                <div class="map md:flex-1">
                     <img src="/wp-content/uploads/2025/03/map.png" alt="">
                 </div>
             </div>
