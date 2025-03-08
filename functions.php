@@ -149,22 +149,22 @@ function theann_hotel_assets()
 	if (is_front_page()) {
 
 
-		wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array('jquery'), '', true);
-		// wp_enqueue_style('glide-css', 'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css');
-		// wp_enqueue_style('glide-css-2', 'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css');
 
-		// wp_enqueue_script('glide-js', 'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js', array('jquery'), '', true);
 
-		// wp_enqueue_style('flickity-css', ' https://unpkg.com/flickity@2/dist/flickity.min.css');
-		// wp_enqueue_script('flickity-js', 'https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js', array('jquery'), '', true);
+		// wp_enqueue_style('glide-css', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css');
+		// wp_enqueue_style('glide-css-2', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/themes/splide-skyblue.min.css');
 
-		wp_enqueue_style('glide-css', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css');
-		wp_enqueue_style('glide-css-2', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/themes/splide-skyblue.min.css');
-
-		wp_enqueue_script('glide-js', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js', array('jquery'), '', true);
+		// wp_enqueue_script('glide-js', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js', array('jquery'), '', true);
 	}
+	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array('jquery'), '', true);
 
-	wp_enqueue_script('flickity_main-js', get_template_directory_uri() . './assets/js/flickity_main.js', array(), '1.0.0', true);
+	wp_enqueue_style('splide-css', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css', [], null);
+	wp_enqueue_script('splide-js', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js', [], null, true);
+	wp_enqueue_script('flickity_main-js', get_template_directory_uri() . './assets/js/flickity_main.js',  ['splide-js'], null, true);
+
+	add_action('wp_enqueue_scripts', 'enqueue_splide_scripts');
+
+
 
 	wp_enqueue_script('theann-hotel-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 

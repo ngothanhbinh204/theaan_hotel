@@ -208,34 +208,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Xử lý từng room box
     document.querySelectorAll('.room-box').forEach(roomBox => {
+        if (!roomBox) {
+            console.warn("⚠️ Không tìm thấy .room-box");
+            return;
+        }
+    
         const roomId = roomBox.dataset.roomId;
         const slidesContainer = roomBox.querySelector('.slides-container');
         const slides = [...roomBox.querySelectorAll('.slide')];
         const totalSlides = slides.length;
+    
+        if (!slidesContainer || totalSlides === 0) {
+            console.warn(`⚠️ Không tìm thấy slides hoặc slides trống cho roomId: ${roomId}`);
+            return;
+        }
+    
         let currentSlide = 0;
-
+    
         // Hiển thị slide theo index
         const showSlide = (index) => {
             currentSlide = (index + totalSlides) % totalSlides;
             slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
         };
-
-        // Gán sự kiện cho nút điều hướng
-        roomBox.querySelector('.prev').addEventListener('click', () => showSlide(currentSlide - 1));
-        roomBox.querySelector('.next').addEventListener('click', () => showSlide(currentSlide + 1));
-
-        // Gán sự kiện mở gallery
-        roomBox.querySelector('.expand-button').addEventListener('click', () => {
-            galleryContent.innerHTML = roomData[roomId]
-                .map(src => `<img src="${src}" alt="Room Image">`)
-                .join('');
-            gallery.classList.add('active');
-        });
-
+    
+        // Gán sự kiện cho nút điều hướng nếu tồn tại
+        const prevBtn = roomBox.querySelector('.prev');
+        const nextBtn = roomBox.querySelector('.next');
+    
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        } else {
+            console.warn(`⚠️ Không tìm thấy nút Previous cho roomId: ${roomId}`);
+        }
+    
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+        } else {
+            console.warn(`⚠️ Không tìm thấy nút Next cho roomId: ${roomId}`);
+        }
+    
+        // Gán sự kiện mở gallery nếu có dữ liệu hợp lệ
+        const expandBtn = roomBox.querySelector('.expand-button');
+        const gallery = document.getElementById('gallery');
+        const galleryContent = document.getElementById('gallery-content');
+    
+        if (expandBtn && gallery && galleryContent) {
+            expandBtn.addEventListener('click', () => {
+                if (!roomData || !roomData[roomId]) {
+                    console.warn(`⚠️ Không có dữ liệu gallery cho roomId: ${roomId}`);
+                    return;
+                }
+    
+                galleryContent.innerHTML = roomData[roomId]
+                    .map(src => `<img src="${src}" alt="Room Image">`)
+                    .join('');
+                gallery.classList.add('active');
+            });
+        } else {
+            console.warn(`⚠️ Không thể mở gallery, thiếu phần tử hoặc dữ liệu roomId: ${roomId}`);
+        }
+    
         // Hiển thị slide đầu tiên
         showSlide(0);
     });
-
+    
     // Sự kiện đóng gallery
     const closeGallery = () => gallery.classList.remove('active');
     closeButton.addEventListener('click', closeGallery);

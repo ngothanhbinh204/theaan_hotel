@@ -1,5 +1,5 @@
 <section class="section_general">
-    <div class="container wrapper_guest">
+    <div class="container relative wrapper_guest pt-10 pb-[142px]">
         <div class="heading_address">
             <h2>Guest Love</h2>
         </div>
@@ -87,11 +87,11 @@
         </div>
 
         <div class="wrapper_button">
-            <button id="customPrev" class="custom-arrow prev">
+            <button id="customPrev_guest" class="custom-arrow prev">
                 <img src="/wp-content/uploads/2025/03/arrow-left.svg" alt="Previous">
             </button>
 
-            <button id="customNext" class="custom-arrow next">
+            <button id="customNext_guest" class="custom-arrow next">
                 <img src="/wp-content/uploads/2025/03/arrow-left.svg" alt="Next">
             </button>
         </div>

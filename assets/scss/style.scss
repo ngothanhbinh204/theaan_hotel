@@ -44,6 +44,10 @@ body {
 .max-w-cus {
   max-width: 100% !important;
 }
+body.admin-bar header.site-header {
+  margin-top: 32px; /* Điều chỉnh tùy vào chiều cao của thanh admin */
+}
+
 /* Mobile (<= 640px) */
 #masthead.header_scroll {
   background-color: rgba(0, 0, 0, 0.3);
@@ -82,7 +86,48 @@ header.site-header {
 
         // display: none;
         padding: 12px 16px;
-        border: 1px solid #FFFFFF
+        border: 1px solid #FFFFFF;
+        transform: perspective(1px);
+        transition-property: color;
+        transition-duration: .3s;
+        position: relative;
+
+        &:hover {
+          color: #000000;
+          &:before {
+            -webkit-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+            transform: scaleX(1);
+          }
+        }
+
+        
+
+        &:before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: #fff;
+          -webkit-transform: scaleX(0);
+          -ms-transform: scaleX(0);
+          transform: scaleX(0);
+          -webkit-transform-origin: 0 50%;
+          -ms-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+          -webkit-transition-property: -webkit-transform;
+          transition-property: -webkit-transform;
+          transition-property: transform;
+          transition-property: transform, -webkit-transform;
+          transition-property: transform, -webkit-transform;
+          -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+          -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+        }
 
       }
     }
@@ -290,15 +335,19 @@ header.site-header.menu-opened {
     max-width: 1312px;
     padding-bottom: 48px;
 
-    .splide__arrows {
-      display: none; 
+   
+  .splide__track  {
+    overflow: visible !important;
+  
+    .splice_item {
+      max-width: 560px;
+    }
   }
 }
-.splide__track {
-    overflow: visible !important;
 
+.splide__arrows {
+  display: none; 
 }
-
 
 .wrapper_button {
   display: flex;
@@ -352,7 +401,13 @@ header.site-header.menu-opened {
   }
   
 }
+.wrapper_guest {
+  .wrapper_button {
+    bottom: 40px;
 
+  }
+
+}
 .amennities {
   display: flex;
   flex-direction: column;
@@ -570,14 +625,7 @@ header.site-header.menu-opened {
   }
 }
 
-.splide__track  {
-  // clip-path: inset(0 -100% 0px 0px);
-  overflow: visible !important;
 
-  .splice_item {
-    max-width: 560px;
-  }
-}
 
 a.button_details {
   font-family: Gilroy;
@@ -1243,7 +1291,32 @@ footer {
     }
   }
 }
+.list_info_ct {
+  .item {
+    font-family: Gilroy;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-align: center;
 
+    p {
+      font-weight: 700;
+    
+    }
+
+    a {
+      font-family: Gilroy;     
+      color: #00000099;  
+    }
+    .icon img {
+      color: #363636;
+      filter: invert(0.8);
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
 .room_detail {
   .box_info {
     .heading_detail {
@@ -1492,6 +1565,29 @@ footer {
 
 
 .title_subtitle {
+  max-width: 1048px !important;
+  >p.name {
+    font-family: Gilroy;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 1.25px;
+    text-align: center;
+    vertical-align: middle;
+    color: #00000080;
+
+  }
+  h1.title {
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 150%;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #363636;
+
+  }
   h2.title {
     font-family: Gilroy;
     font-weight: 600;
@@ -1528,6 +1624,8 @@ footer {
 }
 
 .list_dining {
+  display: flex;
+  flex-direction: column;
   .box_dining {
     color: #363636;
     .item_onlyImage {
@@ -1535,6 +1633,16 @@ footer {
     }
 
     .group_info {
+      >p.note_ {
+        font-family: Gilroy;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 1.25px;
+        vertical-align: middle;
+        color: #363636;
+
+      }
       .title_des {
       h2.title {
         font-family: Gilroy;
@@ -1598,6 +1706,142 @@ footer {
   }
 }
 
+.list_taste {
+  .box_taste {
+    .box_info {
+      h2.title {
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 150%;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #363636;
+        } 
+      }
+    
+      p.description {
+        font-family: Gilroy;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        letter-spacing: 1px;
+        text-align: justify;
+        vertical-align: middle;
+        color: #00000080;
+    
+    
+      }
+      a.button_details {
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 140%;
+        letter-spacing: 2px;
+        vertical-align: middle;
+        width: fit-content;
+        color: #363636;
+        border-bottom: 1px solid #000000;
+        padding: 4px 0px;
+        text-transform: uppercase;
+      }
+
+      .container_rooms {
+      .list_rooms{
+        .box_dining {
+          .item_room {
+            min-height: 620px !important;
+          }
+        }
+      }
+    }
+    }
+
+    
+
+
+  
+}
+
+.item_room {
+  padding: 0px;
+  row-gap: 24px;
+
+  h3 {
+    text-shadow: none;
+  }
+
+  p.size {
+    // font-family: Manrope;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.25px;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: none;
+
+    margin-bottom: 16px;
+
+  }
+  &::before {
+    content: none;
+  }
+  color: #363636;
+
+  .sub_amenities {
+    padding: 0px;
+   gap: 16px 20px;
+    .item_ {
+      row-gap: 8px;
+      .item-image {
+        width: 32px;
+        height: 32px;
+        filter: invert(1);
+      }
+
+      p {
+        font-family: Gilroy;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 140%;
+        letter-spacing: 1.25px;
+        text-align: center;
+        vertical-align: middle;
+
+        color: #000000B2;
+      }
+    }
+  }
+
+  a.button_details {
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 140%;
+    letter-spacing: 2px;
+    vertical-align: middle;
+    color: #363636;
+    border-bottom: 1px solid #000000;
+    padding-top: 12px;
+    text-transform: uppercase;
+  }
+
+}
+
+
+.wraper {
+  h2.title_contact {
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 140%;
+    letter-spacing: 1.25px;
+    text-align: center;
+    vertical-align: middle;
+    color: #363636;
+  }
+}
 @import "./components/768px";
 @import "./components/1024px";
 
@@ -1619,5 +1863,11 @@ footer {
       }
     }
   }
+
+  .container_rooms .list_rooms .item_room, .list_taste .box_taste .container_rooms .list_rooms .box_dining .item_room {
+    min-height: 335px !important;
+  }
+
+  
 
 }
