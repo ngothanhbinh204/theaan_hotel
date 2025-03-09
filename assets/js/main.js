@@ -217,6 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const slidesContainer = roomBox.querySelector('.slides-container');
         const slides = [...roomBox.querySelectorAll('.slide')];
         const totalSlides = slides.length;
+        const pagination = roomBox.querySelector('.pagination_handle');
+
     
         if (!slidesContainer || totalSlides === 0) {
             console.warn(`⚠️ Không tìm thấy slides hoặc slides trống cho roomId: ${roomId}`);
@@ -224,11 +226,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         let currentSlide = 0;
+
+          // Create pagination dots
+          slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+            dot.addEventListener('click', () => showSlide(index));
+            pagination.appendChild(dot);
+        });
     
         // Hiển thị slide theo index
         const showSlide = (index) => {
             currentSlide = (index + totalSlides) % totalSlides;
             slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update pagination dots
+            pagination.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
         };
     
         // Gán sự kiện cho nút điều hướng nếu tồn tại

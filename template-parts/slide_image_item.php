@@ -9,7 +9,7 @@
                 <div class="slider">
                     <div class="slides-container">
                         <?php for ($k = 0; $k < 3; $k++) { ?>
-                        <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                            <img src="<?= $room_image; ?>" alt="City King room" class="slide">
                         <?php } ?>
                     </div>
 
@@ -19,6 +19,8 @@
                     <button class="nav-button next">
                         <img src="<?= $arrow_left; ?>" alt="Next">
                     </button>
+                    <div class="pagination_handle"></div>
+
                 </div>
             </div>
 

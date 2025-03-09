@@ -110,60 +110,7 @@
     
           .amennities {
             display: flex;
-            flex-direction: column;
-            row-gap: 56px;
-        
-            .row {
-              // margin: 0 auto;
-              .grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(153px, 1fr)) !important; 
-                // grid-template-columns: repeat(12, 1fr);
-                grid-template-rows: repeat(1, 1fr) !important;
-                column-gap: 32px; /* Khoảng cách giữa các cột */
-                row-gap: 35px; /* Khoảng cách giữa các hàng */
-                justify-content: center;
-                gap: 35px 32px;
-                min-width: 100%;
-                .item_amenities {
-                  width: 100%;    
-                  p {
-                    padding: 0 8px;
-                  }
-                }
-    
-              
-              }
-
-              .item_amenities {
-                grid-column: auto !important;
-                grid-row: auto !important;
-              }
-              
-          
-    
-              .grid2 {
-                display: flex;
-                .item_amenities {
-                  width: 153px;
-                }
-              }
-            }
-       
-           .wrapper_amennities {
-            display: flex;
-            flex-direction: column;
-            row-gap: 24px;
-            width: 100%;
-            .row {
-              padding: 12px 24px;
-            }
-            .grid {
-              
-            }
-           }
-            
-        
+            flex-direction: column;       
           }
     }
     

@@ -51,4 +51,28 @@ document.addEventListener("DOMContentLoaded", function () {
             splideGuest.go(">");
         });
     }
+
+
+
+
+    var TasteSlider = document.getElementById("guest-slider");
+    if (TasteSlider) {
+        var splideTaste = new Splide("#guest-slider", {
+            type: "loop",
+            perPage: 1,
+            autoplay: true,
+            pagination: true, 
+            interval: 3000,
+        }).mount();
+
+        document.getElementById("customPrev_Taste")?.addEventListener("click", function () {
+            splideTaste.go("<");
+        });
+
+        document.getElementById("customNext_Taste")?.addEventListener("click", function () {
+            splideTaste.go(">");
+        });
+    }
+
+
 });

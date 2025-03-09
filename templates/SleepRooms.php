@@ -10,8 +10,8 @@ get_header();
     <!-- Banner hero  -->
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <!-- Banner hero -->
-    <?php get_template_part('./template-parts/section_banner_hero'); ?>
+            <!-- Banner hero -->
+            <?php get_template_part('./template-parts/section_banner_hero'); ?>
 
     <?php endwhile;
     endif; ?>
@@ -27,46 +27,24 @@ get_header();
                     for your stay. Enjoy plush bedding, stunning city views, and thoughtful touches that cater to your
                     every need.</p>
             </div>
-            <div class="amennities">
+            <div class="amennities gap-y-[42px]">
                 <h3>In-room amenities</h3>
 
                 <div class="wrapper_amennities">
                     <div class="row">
-                        <div class="grid">
+                        <div class="flex flex-row flex-wrap justify-center list_item_amen">
                             <?php
-                            for ($i = 0; $i <= 6; $i++) {
+                            for ($i = 0; $i <= 11; $i++) {
                                 echo '<div class="item_amenities">
-                        <div class="item-image">
-                        <img src="http://theannhotel.local/wp-content/uploads/2025/03/wifi.svg" alt="" class="item-img">
-                        </div>
-                        <p class="item-text">High-speed 
-Wifi</p>
-                    </div>';
+                                <div class="item-image">
+                                <img src="http://theannhotel.local/wp-content/uploads/2025/03/wifi.svg" alt="" class="item-img">
+                                </div>
+                                <p class="item-text">High-speed Wifi</p>
+                            </div>';
                             }
                             ?>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <?php
-                        $item_on_row = 4;
-                        ?>
-                        <div class="grid <?php echo ($item_on_row < 7) ? 'grid2' : 'grid1'; ?>">
-                            <?php
-                            for ($i = 0; $i <= $item_on_row; $i++) {
-                                echo '<div class="item_amenities">
-                        <div class="item-image">
-                        <img src="http://theannhotel.local/wp-content/uploads/2025/03/wifi.svg" alt="" class="item-img">
-                        </div>
-                        <p class="item-text">City View</p>
-                    </div>';
-                            }
-                            ?>
-                        </div>
-                    </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -84,7 +62,7 @@ Wifi</p>
                     $amenity_icon = "/wp-content/uploads/2025/03/double-bed_2.svg";
 
                     for ($i = 0; $i < 4; $i++) { ?>
-                    <?php get_template_part('template-parts/room_item'); ?>
+                        <?php get_template_part('template-parts/room_item'); ?>
 
                     <?php } ?>
                 </div>

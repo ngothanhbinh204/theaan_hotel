@@ -10,8 +10,8 @@ get_header();
     <!-- Banner hero  -->
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <!-- Banner hero -->
-    <?php get_template_part('./template-parts/section_banner_hero'); ?>
+            <!-- Banner hero -->
+            <?php get_template_part('./template-parts/section_banner_hero'); ?>
 
     <?php endwhile;
     endif; ?>
@@ -38,7 +38,7 @@ get_header();
                         <div class="slider">
                             <div class="slides-container">
                                 <?php for ($k = 0; $k < 3; $k++) { ?>
-                                <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                                    <img src="<?= $room_image; ?>" alt="City King room" class="slide">
                                 <?php } ?>
                             </div>
 
@@ -83,8 +83,9 @@ get_header();
                             </div>
                         </div>
                         <p class="note_">(Last bookings are 15 minutes before closing times)</p>
-                        <a class="button_details" href="">Food menu</a>
-                        <a class="button_details" href="">Drink Menu</a>
+                        <a class="button_details btn_cus form-right" href="">Food menu</a>
+                        <a class="button_details btn_cus form-right" href="">Drink Menu</a>
+
 
                     </div>
                 </div>
@@ -138,6 +139,68 @@ get_header();
 
             </div>
         </div>
+    </section>
+
+    <section class="section_general taste_">
+        <div class="container">
+            <?php
+            $room_image = "http://theannhotel.local/wp-content/uploads/2025/03/dining_img.jpg";
+            $arrow_left = "http://theannhotel.local/wp-content/uploads/2025/03/arrow-left.svg";
+            $arrow_right = "http://theannhotel.local/wp-content/uploads/2025/03/arrow-right.svg";
+            ?>
+
+            <div class="splide" id="SliderTaste">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="box">
+                                <div class="img_">
+                                    <img src="<?= $room_image; ?>" alt="">
+                                </div>
+                                <p class="content_">
+                                    Indulge in an exquisite culinary journey at The Ann Restaurant. Reserve your table
+                                    today and
+                                    delight in the finest Vietnamese flavors, paired with a warm and inviting
+                                    atmosphere—perfect for
+                                    any occasion.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="box">
+                                <div class="img_">
+                                    <img src="<?= $room_image; ?>" alt="">
+                                </div>
+                                <p class="content_">
+                                    Enjoy our signature dishes made from the freshest ingredients.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="box">
+                                <div class="img_">
+                                    <img src="<?= $room_image; ?>" alt="">
+                                </div>
+                                <p class="content_">
+                                    Experience exceptional dining at The Ann Hotel.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Custom navigation buttons -->
+                <div class="wrapper_ctrl">
+                    <button id="customPrev_Taste" class="nav-button prev">
+                        <img src="<?= $arrow_left; ?>" alt="Previous">
+                    </button>
+                    <button id="customNext_Taste" class="nav-button next">
+                        <img src="<?= $arrow_right; ?>" alt="Next">
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <section class="section_general bg-[#EAE7DC]">
