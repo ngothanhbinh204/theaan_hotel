@@ -100,6 +100,39 @@
     }
   
   }
+
+  .container_facilities {
+    .list_facilities {
+      .room-box {
+        .slider {
+          height: 700px !important;
+        }
+      }
+      .group_info {
+        .list_info {
+          p {
+            margin-bottom: 20px !important;
+          }
+        }
+      }
+    }
+  }
+
+  .container_facilities .list_facilities .box_facilities .group_info .list_info .item {
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 1.25px;
+  }
+  .container_facilities .list_facilities .box_facilities .group_info .title_des h2.title{
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: 2.2px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    
+  }
   
 
 }
@@ -854,10 +887,74 @@ a.button_details {
    }
  }
  }
- .list_taste .box_taste .container_rooms {
-  max-width: 759px;
- }
 
+ .list_taste {
+  .box_taste {
+    .box_info {
+      row-gap: 42px;
+      h2.title {
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 160%;
+        letter-spacing: 2.2px;
+        text-transform: uppercase;
+        
+        } 
+      }
+    
+      p.description {
+        font-family: Gilroy;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 1px;
+        text-align: justify;
+        vertical-align: middle;
+        
+    
+    
+      }
+      .container_rooms {
+        max-width: 759px;
+      .list_rooms{
+        .box_dining {
+          .item_room {
+            min-height: 620px !important;
+          }
+        }
+      }
+    }
+    }
+
+    
+
+
+  
+}
+
+
+
+ .layout_3 {
+
+
+  .item {
+    height: 460px;
+    padding: 32px 50px;
+    h3.title {
+      font-family: Gilroy;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 110%;
+        letter-spacing: 1.25px;
+        text-align: center;
+        vertical-align: middle;
+
+        color: white;
+
+    }
+  }
+}
  .title_subtitle {
   max-width: 1048px !important;
   >p.name {

@@ -98,7 +98,7 @@ get_header();
     <section class="sectione_general">
         <div class="container">
             <div class="list_taste flex flex-col gap-y-[100px] md:gap-y-[150px]">
-                <div class="box_taste flex flex-col gap-x-[40px] lg:gap-x-[100px] gap-y-10 md:flex-row">
+                <div class="box_taste flex flex-col items-center gap-x-[40px] lg:gap-x-[100px] gap-y-10 md:flex-row">
 
                     <?php get_template_part('./template-parts/slide_image_item'); ?>
 
@@ -118,7 +118,7 @@ get_header();
 
                 </div>
 
-                <div class="box_taste flex flex-col gap-x-[40px] lg:gap-x-[100px] gap-y-10 md:flex-row">
+                <div class="box_taste flex flex-col items-center gap-x-[40px] lg:gap-x-[100px] gap-y-10 md:flex-row">
 
                     <?php get_template_part('./template-parts/slide_image_item'); ?>
 
@@ -211,7 +211,32 @@ get_header();
     </section>
 
     <section class="section_general">
+        <div class="container max-w-cus px-0">
+            <div class="layout_3">
+                <p class="content">Savor the flavors of our restaurant in the privacy of your room—no reservations, no
+                    rush. Enjoy
+                    delicious meals at your convenience, any time of day, with attentive service and ultimate comfort.
+                </p>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-7">
+                    <?php
+                    for ($i = 0; $i < 4; $i++) {
+                        echo '
+                      <div class="flex flex-col justify-end items-center item relative">
+                        <div class="box_img img_bg_cus">
+                            <img src="http://theannhotel.local/wp-content/uploads/2025/03/img2.jpg" alt="">
+                        </div>
+                        <h3 class="title">
+                            Breakfast
+                        </h3>
+                    </div>
+                    ';
+                    }
+                    ?>
+
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="section_general bg-[#EAE7DC]">

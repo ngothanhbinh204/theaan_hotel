@@ -71,6 +71,12 @@
 
 
     </div><!-- .site-info -->
+
+    <!-- Fullscreen Gallery -->
+    <div class="fullscreen-gallery">
+        <button class="close-button">×</button>
+        <div class="gallery-content"></div>
+    </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
 

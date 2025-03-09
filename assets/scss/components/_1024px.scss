@@ -86,6 +86,22 @@
     }
     
   }
+  .container_facilities {
+    .list_facilities {
+      .room-box {
+        .slider {
+          height: 700px !important;
+        }
+      }
+      .group_info {
+        .list_info {
+          p {
+            margin-bottom: 20px !important;
+          }
+        }
+      }
+    }
+  }
 }
 
 

@@ -126,27 +126,27 @@ get_header();
         </section>
 
 
-        <section class="section_general">
-            <div class="container">
-                <div class="heading_address">
-                    <h2> EXPLORE OFFERS & EXPERIENCES</h2>
-                </div>
-                <div class="list_box_explore flex flex-col gap-y-6">
-                    <?php
-                    for ($i = 0; $i <= 2; $i++) {
-                        echo "
-                        <div style=\"background-image: url('/wp-content/uploads/2025/03/pool.jpg');\"
-                            class=\"box flex flex-col items-start justify-end\">
-                            <h3 class=\"title\">
-                                Infinity Pool
-                            </h3>
-                        </div>";
-                    }
+        <?php get_template_part('template-parts/exployer_section'); ?>
 
-                    ?>
+
+        <section class="section_general hidden md:block">
+            <div class="container spa_ss max-w-cus px-0">
+                <div class="box flex justify-center items-center relative">
+                    <div class="box_img">
+                        <img src="/wp-content/uploads/2025/03/spa.jpg" alt="">
+                    </div>
+                    <div class="info__ mx-auto">
+                        <h3 class="title mb-8">
+                            The Spa
+                        </h3>
+                        <p>
+                            Thoughtful touches bring nature into your space with natural elements, reclaimed woods,
+                            custom
+                            organic cotton mattress and sustainably
+                        </p>
+                    </div>
                 </div>
             </div>
-
         </section>
 
 
