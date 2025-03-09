@@ -10,8 +10,8 @@ get_header();
     <!-- Banner hero  -->
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <!-- Banner hero -->
-    <?php get_template_part('./template-parts/section_banner_hero'); ?>
+            <!-- Banner hero -->
+            <?php get_template_part('./template-parts/section_banner_hero'); ?>
 
     <?php endwhile;
     endif; ?>
@@ -40,7 +40,7 @@ get_header();
                         <div class="slider">
                             <div class="slides-container">
                                 <?php for ($k = 0; $k < 3; $k++) { ?>
-                                <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                                    <img src="<?= $room_image; ?>" alt="City King room" class="slide">
                                 <?php } ?>
                             </div>
 
@@ -50,6 +50,7 @@ get_header();
                             <button class="nav-button next">
                                 <img src="<?= $arrow_left; ?>" alt="Next">
                             </button>
+                            <div class="pagination_handle"></div>
                         </div>
                     </div>
                     <div class="group_info flex flex-col gap-7 md:gap-9 w-full md:w-3/12">
@@ -96,7 +97,7 @@ get_header();
                         <div class="slider">
                             <div class="slides-container">
                                 <?php for ($k = 0; $k < 3; $k++) { ?>
-                                <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                                    <img src="<?= $room_image; ?>" alt="City King room" class="slide">
                                 <?php } ?>
                             </div>
 
@@ -106,6 +107,7 @@ get_header();
                             <button class="nav-button next">
                                 <img src="<?= $arrow_left; ?>" alt="Next">
                             </button>
+                            <div class="pagination_handle"></div>
                         </div>
                     </div>
                     <div class="group_info flex flex-col gap-7 md:gap-9 w-full md:w-3/12">
@@ -152,7 +154,7 @@ get_header();
                         <div class="slider">
                             <div class="slides-container">
                                 <?php for ($k = 0; $k < 3; $k++) { ?>
-                                <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                                    <img src="<?= $room_image; ?>" alt="City King room" class="slide">
                                 <?php } ?>
                             </div>
 
@@ -162,6 +164,7 @@ get_header();
                             <button class="nav-button next">
                                 <img src="<?= $arrow_left; ?>" alt="Next">
                             </button>
+                            <div class="pagination_handle"></div>
                         </div>
                     </div>
                     <div class="group_info flex flex-col gap-7 md:gap-9 w-full md:w-3/12">
@@ -208,7 +211,7 @@ get_header();
                         <div class="slider">
                             <div class="slides-container">
                                 <?php for ($k = 0; $k < 3; $k++) { ?>
-                                <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                                    <img src="<?= $room_image; ?>" alt="City King room" class="slide">
                                 <?php } ?>
                             </div>
 
@@ -218,6 +221,7 @@ get_header();
                             <button class="nav-button next">
                                 <img src="<?= $arrow_left; ?>" alt="Next">
                             </button>
+                            <div class="pagination_handle"></div>
                         </div>
                     </div>
                     <div class="group_info flex flex-col gap-7 md:gap-9 w-full md:w-3/12">

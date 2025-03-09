@@ -10,8 +10,8 @@ get_header();
     <!-- Banner hero  -->
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-            <!-- Banner hero -->
-            <?php get_template_part('./template-parts/section_banner_hero'); ?>
+    <!-- Banner hero -->
+    <?php get_template_part('./template-parts/section_banner_hero'); ?>
 
     <?php endwhile;
     endif; ?>
@@ -38,7 +38,7 @@ get_header();
                         <div class="slider">
                             <div class="slides-container">
                                 <?php for ($k = 0; $k < 3; $k++) { ?>
-                                    <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                                <img src="<?= $room_image; ?>" alt="City King room" class="slide">
                                 <?php } ?>
                             </div>
 
@@ -48,6 +48,7 @@ get_header();
                             <button class="nav-button next">
                                 <img src="<?= $arrow_left; ?>" alt="Next">
                             </button>
+                            <div class="pagination_handle"></div>
                         </div>
                     </div>
                     <div class="group_info flex flex-col gap-7 md:gap-9 w-full md:w-3/12">
@@ -142,7 +143,7 @@ get_header();
     </section>
 
     <section class="section_general taste_">
-        <div class="container">
+        <div class="container max-w-cus px-0">
             <?php
             $room_image = "http://theannhotel.local/wp-content/uploads/2025/03/dining_img.jpg";
             $arrow_left = "http://theannhotel.local/wp-content/uploads/2025/03/arrow-left.svg";
@@ -152,8 +153,8 @@ get_header();
             <div class="splide" id="SliderTaste">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide">
-                            <div class="box">
+                        <li class="splide__slide slider_taste">
+                            <div class="wrapper_ flex flex-col justify-center items-center">
                                 <div class="img_">
                                     <img src="<?= $room_image; ?>" alt="">
                                 </div>
@@ -166,40 +167,50 @@ get_header();
                                 </p>
                             </div>
                         </li>
-                        <li class="splide__slide">
-                            <div class="box">
+                        <li class="splide__slide slider_taste">
+                            <div class="wrapper_ flex flex-col justify-center items-center">
                                 <div class="img_">
                                     <img src="<?= $room_image; ?>" alt="">
                                 </div>
                                 <p class="content_">
-                                    Enjoy our signature dishes made from the freshest ingredients.
+                                    Indulge in an exquisite culinary journey at The Ann Restaurant. Reserve your table
+                                    today and
+                                    delight in the finest Vietnamese flavors, paired with a warm and inviting
+                                    atmosphere—perfect for
+                                    any occasion.
                                 </p>
                             </div>
                         </li>
-                        <li class="splide__slide">
-                            <div class="box">
+                        <li class="splide__slide slider_taste">
+                            <div class="wrapper_ flex flex-col justify-center items-center">
                                 <div class="img_">
                                     <img src="<?= $room_image; ?>" alt="">
                                 </div>
                                 <p class="content_">
-                                    Experience exceptional dining at The Ann Hotel.
+                                    Indulge in an exquisite culinary journey at The Ann Restaurant. Reserve your table
+                                    today and
+                                    delight in the finest Vietnamese flavors, paired with a warm and inviting
+                                    atmosphere—perfect for
+                                    any occasion.
                                 </p>
                             </div>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Custom navigation buttons -->
-                <div class="wrapper_ctrl">
-                    <button id="customPrev_Taste" class="nav-button prev">
+                <div class=" wrapper_ctrl">
+                    <button id="customPrev_Taste" class="nav-button custom-arrow prev">
                         <img src="<?= $arrow_left; ?>" alt="Previous">
                     </button>
-                    <button id="customNext_Taste" class="nav-button next">
-                        <img src="<?= $arrow_right; ?>" alt="Next">
+                    <button id="customNext_Taste" class="nav-button custom-arrow next">
+                        <img src="<?= $arrow_left; ?>" alt="Next">
                     </button>
                 </div>
             </div>
         </div>
+
+    </section>
+
+    <section class="section_general">
 
     </section>
 

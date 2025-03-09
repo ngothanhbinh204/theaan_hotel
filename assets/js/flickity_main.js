@@ -55,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    var TasteSlider = document.getElementById("guest-slider");
+    var TasteSlider = document.getElementById("SliderTaste");
     if (TasteSlider) {
-        var splideTaste = new Splide("#guest-slider", {
+        var splideTaste = new Splide("#SliderTaste", {
             type: "loop",
             perPage: 1,
-            autoplay: true,
+            // autoplay: true,
             pagination: true, 
             interval: 3000,
         }).mount();

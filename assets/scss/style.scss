@@ -15,31 +15,55 @@
 
 }
 
+.splide__pagination__page {
+  background: #FFFFFF4D;
+
+  &.is-active{
+    background: #FFFFFF;
+    opacity: 1 !important;
+    // width: 16px;
+    border-radius: 4px;
+    transform: scale(1) !important;
+
+  }
+
+  transition: all .3s ease !important;
+
+}
+
+.splide__pagination {
+  z-index: 5;
+  transition: all .3s ease;
+  bottom: 2rem;
+
+}
 .slider {
   position: relative;
   .pagination_handle {
+    z-index: 5;
     position: absolute;
-    bottom: 1rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 0.5rem;
-  }
-  
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    
-    .active {
-      width: 16px;
-      border-radius: 4px;
-      background: white;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &.active {
+        // width: 16px;
+        border-radius: 4px;
+        background: white;
+      }
     }
   }
+
 }
 
 .swiper-wrapper {
@@ -47,9 +71,9 @@
 }
 
 .swiper-slide {
-  width: 560px !important; /* Đảm bảo mỗi slide giữ đúng kích thước */
+  width: 560px !important;
   height: 560px !important;
-  flex-shrink: 0; /* Không co lại khi Swiper xử lý */
+  flex-shrink: 0;
 }
 
 .swiperRoooms  {
@@ -59,6 +83,7 @@
 
 $color-body: #F2F0E9;
 $text-color: #363636;
+$text-color-B2 : #363636B2;
 // $color-primary: #FFC107;
 body {
   background-color: $color-body;
@@ -398,7 +423,6 @@ header.site-header.menu-opened {
   button.custom-arrow.prev {
         &:hover {
           img {
-            
               transform: translateX(-5px);
           }
       }
@@ -773,7 +797,7 @@ a.button_details {
 
   .list_guest {
   .box_guest {
-    color: #363636;
+    color: $text-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1006,11 +1030,11 @@ a.btn_get_direc {
   vertical-align: middle;
   text-transform: uppercase;
   
-  color: #363636;
+  color: $text-color;
   margin-top: 64px;
   display: inline-flex;
 
-  border-bottom: 1px solid #363636;
+  border-bottom: 1px solid $text-color;
 }
 
 
@@ -1204,7 +1228,7 @@ footer {
       &::before {
         content: none;
       }
-      color: #363636;
+      color: $text-color;
 
       .sub_amenities {
         padding: 0px;
@@ -1238,7 +1262,7 @@ footer {
         line-height: 140%;
         letter-spacing: 2px;
         vertical-align: middle;
-        color: #363636;
+        color: $text-color;
         border-bottom: 1px solid #000000;
         padding-top: 12px;
         text-transform: uppercase;
@@ -1249,7 +1273,7 @@ footer {
 }
 
 .ss_faq {
-  color: #363636;
+  color: $text-color;
 
   h2.title {
     font-family: Gilroy;
@@ -1297,7 +1321,7 @@ footer {
 }
 
 .box_contact {
-  color: #363636;
+  color: $text-color;
   h4 {
     font-family: Gilroy;
     font-weight: 600;
@@ -1328,7 +1352,7 @@ footer {
         color: #00000099;  
       }
       .icon img {
-        color: #363636;
+        color: $text-color;
         filter: invert(0.8);
         width: 28px;
         height: 28px;
@@ -1355,7 +1379,7 @@ footer {
       color: #00000099;  
     }
     .icon img {
-      color: #363636;
+      color: $text-color;
       filter: invert(0.8);
       width: 28px;
       height: 28px;
@@ -1591,7 +1615,7 @@ footer {
       line-height: 140%;
       letter-spacing: 2.2px;
       vertical-align: middle;
-      color: #363636;
+      color: $text-color;
       margin-bottom: 24px;
 
       }
@@ -1630,7 +1654,7 @@ footer {
     letter-spacing: 2px;
     text-align: center;
     text-transform: uppercase;
-    color: #363636;
+    color: $text-color;
 
   }
   h2.title {
@@ -1643,7 +1667,7 @@ footer {
     vertical-align: middle;
     text-transform: uppercase;
 
-    color: #363636;
+    color: $text-color;
 
   }
 
@@ -1672,7 +1696,7 @@ footer {
   display: flex;
   flex-direction: column;
   .box_dining {
-    color: #363636;
+    color: $text-color;
     .item_onlyImage {
 
     }
@@ -1685,7 +1709,7 @@ footer {
         line-height: 150%;
         letter-spacing: 1.25px;
         vertical-align: middle;
-        color: #363636;
+        color: $text-color;
 
       }
       .title_des {
@@ -1728,7 +1752,7 @@ footer {
             margin-bottom: 8px;
           }
           span {
-            color: #363636B2;
+            color: $text-color-B2;
           }
         }
 
@@ -1742,7 +1766,7 @@ footer {
         letter-spacing: 2px;
         vertical-align: middle;
         width: fit-content;
-        color: #363636;
+        color: $text-color;
         border-bottom: 1px solid #000000;
         padding: 4px 0px;
         text-transform: uppercase;
@@ -1761,7 +1785,7 @@ footer {
         line-height: 150%;
         letter-spacing: 2px;
         text-transform: uppercase;
-        color: #363636;
+        color: $text-color;
         } 
       }
     
@@ -1785,7 +1809,7 @@ footer {
         letter-spacing: 2px;
         vertical-align: middle;
         width: fit-content;
-        color: #363636;
+        color: $text-color;
         border-bottom: 1px solid #000000;
         padding: 4px 0px;
         text-transform: uppercase;
@@ -1833,7 +1857,7 @@ footer {
     &::before {
       content: none;
     }
-    color: #363636;
+    color: $text-color;
   
     .sub_amenities {
       padding: 0px;
@@ -1867,7 +1891,7 @@ footer {
       line-height: 140%;
       letter-spacing: 2px;
       vertical-align: middle;
-      color: #363636;
+      color: $text-color;
       border-bottom: 1px solid #000000;
       padding-top: 12px;
       text-transform: uppercase;
@@ -1886,7 +1910,7 @@ footer {
     letter-spacing: 1.25px;
     text-align: center;
     vertical-align: middle;
-    color: #363636;
+    color: $text-color;
   }
 }
 
@@ -1937,7 +1961,67 @@ footer {
   width: 100%;
 }
 
+#SliderTaste {
+  .splide__track {
+    height: 500px;
 
+    .splide_slide {
+      height: 100%;
+    }
+  }
+  .slider_taste {
+    .img_ {
+      z-index: -2;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      img {
+        object-position: 43% center;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        object-fit: cover;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: #00000059;
+      }
+    }
+  }
+ 
+  .wrapper_ {
+    position: relative;
+    height: 100%;
+    padding: 20px;
+   
+
+    p.content_ {
+      font-family: Andada Pro;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 40px;
+      letter-spacing: 0px;
+      text-align: center;
+      color: white;
+      max-width: 935px;
+      z-index: 3;
+
+    }
+
+ 
+  }
+
+  .wrapper_ctrl {
+    .nav-button {
+      background: rgba(255,255,255,.2) !important;
+    }
+  }
+}
 
 
 @import "./components/768px";
