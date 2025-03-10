@@ -3,7 +3,7 @@
         <div class="wraper flex flex-col md:flex-row gap-x-[246px] gap-y-[24px] ">
             <h2 class="title_contact">INQUIRY</h2>
             <div class="boxx_info">
-                <div class="list_info_ct flex flex-col gap-y-[10px] text-[#00000099]">
+                <div class="list_info_ct full_sc flex flex-col gap-y-[10px] text-[#00000099]">
                     <div class="item flex flex-row justify-center md:justify-start items-center gap-x-2">
                         <p>TEL:</p>
                         <a href="#">+84-24-3871-3838</a>
@@ -13,7 +13,7 @@
                     </div>
                     <div class="item flex flex-row justify-center md:justify-start items-center gap-x-2">
                         <p>Email:</p>
-                        <a class="a_email" href="#">reservations@theann.com.vn</a>
+                        <a class="a_email" href="#">info@theann.com.vn</a>
 
                     </div>
                 </div>

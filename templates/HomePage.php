@@ -75,7 +75,7 @@ get_header();
                                     </div>
                                     <?php } ?>
                                 </div>
-                                <a class="button_details" href="#">View Details</a>
+                                <a class="button_details link link--carpo" href="#">View Details</a>
                             </div>
                         </li>
                         <?php } ?>
@@ -114,7 +114,7 @@ get_header();
                             sweeping views and a laid-back poolside bar perfect for sipping and relaxing.
                         </p>
 
-                        <a class="button_details" href="">
+                        <a class="button_details link link--carpo" href="">
                             Dining
                         </a>
                    </div>';

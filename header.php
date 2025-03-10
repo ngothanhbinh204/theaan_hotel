@@ -63,8 +63,10 @@
                         </svg>
                     </a>
 
-                    <a class=" button_header" href="#">
-                        CHECK AVAILABILITY
+                    <a class=" button_header btn_anima button--hyperion" href="#">
+                        <span>
+                            <span> CHECK AVAILABILITY</span>
+                        </span>
                     </a>
                 </div>
 

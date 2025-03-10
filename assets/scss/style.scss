@@ -8,6 +8,12 @@
 @import "./components/navbars";
 @import "./components/menu";
 
+$color-body: #F2F0E9;
+$text-color: #363636;
+$text-color-B2 : #363636B2;
+$text-black-70: #000000B2;
+$text-black-50: #00000080;
+
 .swiper {
   position: relative;
   overflow: visible;
@@ -80,34 +86,36 @@
   width: 100%;
   overflow: visible !important;
 }
-.item_onlyImage_Page {
-  .wrapper_button_pagination {
-    position: relative;
-    width: 100%;
-      .nav-button {
-        bottom: 1rem ;
-        position: absolute;
+
+
+
+// .item_onlyImage_Page {
+//   .wrapper_ctrl_ {
+//     position: relative;
+//     width: 100%;
+//       .nav-button {
+//         bottom: 1rem ;
+//         position: absolute;
     
-        &.prev {
-          left: 1rem;
-        }
-        &.next {
-          right: 1rem;
+//         &.prev {
+//           left: 1rem;
+//         }
+//         &.next {
+//           right: 1rem;
 
-        }
-      }
+//         }
+//       }
 
-      .pagination_handle {
-        bottom: 46px !important;
-        gap: 4px !important;
-      }
-  }
-}
+    
+//   }
 
-$color-body: #F2F0E9;
-$text-color: #363636;
-$text-color-B2 : #363636B2;
-$text-black-70: #000000B2;
+//   .pagination_handle {
+//     bottom: 38px !important;
+//     gap: 4px !important;
+//   }
+// }
+
+
 // $color-primary: #FFC107;
 body {
   background-color: $color-body;
@@ -138,7 +146,7 @@ body.admin-bar header.site-header {
 }
 /* Mobile (<= 640px) */
 #masthead.header_scroll {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   // min-height: 80px;
 }
 
@@ -172,7 +180,6 @@ header.site-header {
         vertical-align: middle;
         max-height: 48px;
 
-        // display: none;
         padding: 12px 16px;
         border: 1px solid #FFFFFF;
         transform: perspective(1px);
@@ -716,17 +723,78 @@ header.site-header.menu-opened {
 
 
 
+
+
 a.button_details {
   font-family: Gilroy;
   font-weight: 600;
   font-size: 18px;
   line-height: 25.2px;
   letter-spacing: 2px;
+  cursor: pointer;
 
-  border-bottom: 1px solid #fff;
-  padding-top: 12px;
+
   text-transform: uppercase;
 }
+.link {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+
+  span {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+  }
+ 
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+    content: '';
+  }
+
+  &--carpo {
+    &:hover span {
+      transform: translateY(4px);
+    }
+    &::before {
+      transform-origin: 0% 50%;
+      transform: scale3d(0, 1, 1);
+      transition: transform 0.3s;
+    }
+
+    &:hover::before {
+      transform: scale3d(1, 1, 1);
+    }
+
+    &::after {
+      top: calc(100% + 4px);
+      transform-origin: 100% 50%;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scale3d(0, 1, 1);
+    }
+  }
+
+  &:hover span {
+    // color: ;
+    transform: translateY(-2px); /* Di chuyển lên một chút khi hover */
+  }
+
+  &:not(:hover) span {
+    transform: translateY(0); /* Thu về vị trí cũ khi rời hover */
+  }
+}
+
+
 .list_box_ {
   .box{
     display: flex;
@@ -800,7 +868,8 @@ a.button_details {
     min-height: 292px;
     padding: 24px;
     overflow: clip;
-    background-size: 440px;
+    background-size: 100%;
+
     background-position: 90% 70%;
     background-repeat: no-repeat;
     &::before{
@@ -896,19 +965,44 @@ a.button_details {
 
       }
 
-      a {
+      a.button_details_2 {
         font-family: Gilroy;
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
         letter-spacing: 1.25px;
         vertical-align: middle;
-        text-decoration: underline;
-        text-decoration-style: solid;
-        text-decoration-offset: 0%;
-        text-decoration-thickness: 0%;
-        text-decoration-skip-ink: auto;
+        // text-decoration: underline;
+        width: fit-content;
 
+        
+      }
+
+      a.button_details_2.link {
+        &--carpo {
+          &:hover span {
+            transform: translateY(4px);
+          }
+          &::before {
+            transform-origin: 0% 50%;
+            transform: scale3d(0, 1, 1);
+            transition: transform 0.3s;
+          }
+      
+          &:hover::before {
+            transform: scale3d(1, 1, 1);
+          }
+      
+          &::after {
+            top: calc(100% - 5px);
+            transform-origin: 100% 50%;
+            transition: transform 0.3s;
+          }
+      
+          &:hover::after {
+            transform: scale3d(0, 1, 1);
+          }
+        }
       }
     }
 
@@ -1299,7 +1393,7 @@ footer {
         letter-spacing: 2px;
         vertical-align: middle;
         color: $text-color;
-        border-bottom: 1px solid #000000;
+        // border-bottom: 1px solid #000000;
         padding-top: 12px;
         text-transform: uppercase;
       }
@@ -1400,10 +1494,11 @@ footer {
   .item {
     font-family: Gilroy;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 24px;
     letter-spacing: 1.25px;
     text-align: center;
+    
 
     p {
       font-weight: 700;
@@ -1727,7 +1822,11 @@ footer {
   padding-left: 20px;
   padding-right: 20px;
 }
-
+.title_des {
+  h2.title {
+    color: $text-color;
+  }
+}
 .list_dining {
   display: flex;
   flex-direction: column;
@@ -1803,8 +1902,8 @@ footer {
         vertical-align: middle;
         width: fit-content;
         color: $text-color;
-        border-bottom: 1px solid #000000;
-        padding: 4px 0px;
+        // border-bottom: 1px solid #000000;
+        // padding: 4px 0px;
         text-transform: uppercase;
       }
     }
@@ -1846,8 +1945,8 @@ footer {
         vertical-align: middle;
         width: fit-content;
         color: $text-color;
-        border-bottom: 1px solid #000000;
-        padding: 4px 0px;
+        // border-bottom: 1px solid #000000;
+        // padding: 4px 0px;
         text-transform: uppercase;
       }
 
@@ -1928,7 +2027,7 @@ footer {
       letter-spacing: 2px;
       vertical-align: middle;
       color: $text-color;
-      border-bottom: 1px solid #000000;
+      // border-bottom: 1px solid #000000;
       padding-top: 12px;
       text-transform: uppercase;
     }
@@ -2207,7 +2306,7 @@ footer {
       h2.title {
         font-family: Gilroy;
         font-weight: 600;
-        font-size: 32px;
+        font-size: 28px;
         line-height: 120%;
         letter-spacing: 2px;
         vertical-align: middle;
@@ -2224,7 +2323,7 @@ footer {
         .item {
           font-family: Gilroy;
           font-weight: 500;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 120%;
           letter-spacing: 1.25px;
           vertical-align: middle;
@@ -2250,8 +2349,8 @@ footer {
         vertical-align: middle;
         width: fit-content;
         color: $text-color;
-        border-bottom: 1px solid #000000;
-        padding: 4px 0px;
+        // border-bottom: 1px solid #000000;
+        // padding: 4px 0px;
         text-transform: uppercase;
       }
     }
@@ -2379,8 +2478,8 @@ footer {
         vertical-align: middle;
         width: fit-content;
         color: $text-color;
-        border-bottom: 1px solid #000000;
-        padding: 4px 0px;
+        // border-bottom: 1px solid #000000;
+        // padding: 4px 0px;
         text-transform: uppercase;
       }
     }
@@ -2433,6 +2532,37 @@ footer {
 
     color: #FFFFFF;
 
+  }
+}
+
+p.description {
+  font-family: Gilroy;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 1px;
+  text-align: justify;
+  vertical-align: middle;
+  color: $text-black-50;
+}
+
+.box_imgGift {
+  height: 250px;
+  .box_img{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 100%;
+    height: 100%;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center
+    }
   }
 }
 

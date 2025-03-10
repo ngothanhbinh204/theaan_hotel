@@ -49,38 +49,38 @@
             <div class="splide__track">
                 <div class="splide__list">
                     <?php for ($j = 0; $j < 6; $j++) : ?>
-                    <div class="splide__slide list_guest">
-                        <div class="box_guest">
-                            <div class="top_content">
-                                <div class="name">
-                                    <h3>Tim Y</h3>
-                                </div>
-                                <div class="list_star">
-                                    <?php
+                        <div class="splide__slide list_guest">
+                            <div class="box_guest">
+                                <div class="top_content">
+                                    <div class="name">
+                                        <h3>Tim Y</h3>
+                                    </div>
+                                    <div class="list_star">
+                                        <?php
                                         for ($i = 0; $i < 5; $i++) {
                                             echo '<img src="/wp-content/uploads/2025/03/star.svg" alt="">';
                                         }
                                         ?>
+                                    </div>
+                                    <p class="date">October 23</p>
                                 </div>
-                                <p class="date">October 23</p>
-                            </div>
-                            <div class="content flex flex-col gap-y-2">
-                                <p class="content_title line-clamp-1">
-                                    AnnHotel..Hanoi..excellent staff
-                                </p>
-                                <p class="main_content line-clamp-6">
-                                    We spent two nights in the Ann hotel in Hanoi Vietnam...
-                                </p>
-                                <a href="button_details_2">See more</a>
-                            </div>
-                            <div class="bottom_content flex flex-row items-center gap-x-2">
-                                <img src="/wp-content/uploads/2025/03/cumeo.svg" alt="">
-                                <div class="content_ft">
-                                    <span>Poster on <a href="#">TripAdvisor</a></span>
+                                <div class="content flex flex-col gap-y-2">
+                                    <p class="content_title line-clamp-1">
+                                        AnnHotel..Hanoi..excellent staff
+                                    </p>
+                                    <p class="main_content line-clamp-6">
+                                        We spent two nights in the Ann hotel in Hanoi Vietnam...
+                                    </p>
+                                    <a href="" class="button_details_2 link link--carpo">See more</a>
+                                </div>
+                                <div class="bottom_content flex flex-row items-center gap-x-2">
+                                    <img src="/wp-content/uploads/2025/03/cumeo.svg" alt="">
+                                    <div class="content_ft">
+                                        <span>Poster on <a href="#">TripAdvisor</a></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php endfor; ?>
                 </div>
             </div>

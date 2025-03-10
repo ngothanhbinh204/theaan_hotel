@@ -28,10 +28,18 @@
     
     }
   }
+
+  .box_imgGift {
+    height: 350px;
+  }
   
 
 }
 @media (min-width: 650px) {
+
+  .box_imgGift {
+    height: 450px;
+  }
   .ctn_ig {
     margin-top: 130px;
   }
@@ -131,21 +139,21 @@
 }
 
 
-  .container_facilities .list_facilities .box_facilities .group_info .list_info .item {
-    font-size: 24px;
-    line-height: 120%;
-    letter-spacing: 1.25px;
-  }
-  .container_facilities .list_facilities .box_facilities .group_info .title_des h2.title{
-    font-family: Gilroy;
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 120%;
-    letter-spacing: 2.2px;
-    vertical-align: middle;
-    text-transform: uppercase;
+  // .container_facilities .list_facilities .box_facilities .group_info .list_info .item {
+  //   font-size: 24px;
+  //   line-height: 120%;
+  //   letter-spacing: 1.25px;
+  // }
+  // .container_facilities .list_facilities .box_facilities .group_info .title_des h2.title{
+  //   font-family: Gilroy;
+  //   font-weight: 600;
+  //   font-size: 40px;
+  //   line-height: 120%;
+  //   letter-spacing: 2.2px;
+  //   vertical-align: middle;
+  //   text-transform: uppercase;
     
-  }
+  // }
   
 
   .container_features {
@@ -158,7 +166,14 @@
 
 }
 @media (min-width: 768px) {
-
+  .box_imgGift {
+    height: 650px;
+  }
+  .container_facilities .list_facilities .box_facilities .group_info .list_info .item {
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 1.25px;
+  }
   .container_dining {
     max-width: 1512px !important;
     padding-left: 24px;
@@ -579,21 +594,6 @@ a.button_details {
         color: #00000099;
 
       }
-
-      a {
-        font-family: Gilroy;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 1.25px;
-        vertical-align: middle;
-        text-decoration: underline;
-        text-decoration-style: solid;
-        text-decoration-offset: 0%;
-        text-decoration-thickness: 0%;
-        text-decoration-skip-ink: auto;
-
-      }
     }
 
     .bottom_content {
@@ -867,6 +867,53 @@ a.button_details {
         }
 
       }
+    }
+  }
+}
+
+
+.container_facilities {
+  .list_facilities {
+  .box_facilities {
+    .group_info {
+      .title_des {
+      h2.title {
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 120%;
+        letter-spacing: 2px;
+        vertical-align: middle;
+        text-transform: uppercase;
+        
+        text-transform: uppercase;
+         margin-bottom: 0px;
+        }
+      }
+    
+
+      .list_info {
+
+        .item {
+          font-family: Gilroy;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 120%;
+          letter-spacing: 1.25px;
+          vertical-align: middle;
+          
+          
+          p {
+            font-weight: 700;
+            // margin-bottom: 20px !important;
+          }
+         
+          span {
+            color: $text-color-B2;
+          }
+        }
+
+      }
 
       a.button_details {
         font-family: Gilroy;
@@ -875,15 +922,17 @@ a.button_details {
         line-height: 140%;
         letter-spacing: 2px;
         vertical-align: middle;
-        
-        color: #363636;
-        border-bottom: 1px solid #000000;
-        padding: 4px 0px;
+        width: fit-content;
+        color: $text-color;
+        // border-bottom: 1px solid #000000;
+        // padding: 4px 0px;
         text-transform: uppercase;
       }
     }
   }
+  }
 }
+
 
 .container_rooms {
 
@@ -950,13 +999,11 @@ a.button_details {
       }
     }
     }
-
-    
-
-
-  
 }
-
+p.description {
+  font-size: 18px;
+  line-height: 32px;
+}
 
 
  .layout_3 {
@@ -1165,26 +1212,41 @@ a.button_details {
 
       }
 
-      a.button_details {
-        font-family: Gilroy;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 140%;
-        letter-spacing: 2px;
-        vertical-align: middle;
-        width: fit-content;
-        color: $text-color;
-        border-bottom: 1px solid #000000;
-        padding: 4px 0px;
-        text-transform: uppercase;
-      }
+     
     }
   }
   }
 }
 
+// .item_onlyImage_Page {
+//     .nav-button {
+//       bottom: 24px ;
+   
+//       &.prev {
+//         left: 330px !important;
+//       }
+//       &.next {
+//         right: 330px !important;
+
+//       }
+//     }
+
+//     .pagination_handle {
+//       bottom: 46px !important;
+//       gap: 4px !important;
+//     }
+// }
 
 
+
+
+.item_room {
+  .slider {
+    .pagination_handle {
+      bottom: 40px;
+    }
+  }
+}
 
 
 }

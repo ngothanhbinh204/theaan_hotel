@@ -29,12 +29,14 @@ get_header();
     <section ion class="section_general md:my-[160px]">
         <div class="container container_rooms container_dining">
             <div class="list_dining !gap-y-14 md:!gap-y-20 list_rooms">
-                <div class="box_dining flex flex-col md:flex-row md:gap-x-[30px] lg:gap-x-[54px] gap-y-8">
+                <div
+                    class="box_dining flex flex-col md:flex-row md:gap-x-[30px] lg:gap-x-[54px] gap-y-8 max-w-[1380px]">
                     <?php
                     $room_image = "http://theannhotel.local/wp-content/uploads/2025/03/dining_img.jpg";
                     $arrow_left = "http://theannhotel.local/wp-content/uploads/2025/03/arrow-left.svg";
                     ?>
-                    <div class="item_room room-box item_onlyImage w-full md:w-9/12" data-room-id="city-king">
+                    <div class="item_room room-box item_onlyImage item_onlyImage_Page w-full md:w-9/12 max-w-[930px] max-h-[908px]"
+                        data-room-id="city-king">
                         <div class="slider">
                             <div class="slides-container">
                                 <?php for ($k = 0; $k < 3; $k++) { ?>
@@ -42,20 +44,23 @@ get_header();
                                 <?php } ?>
                             </div>
 
-                            <button class="nav-button prev">
-                                <img src="<?= $arrow_left; ?>" alt="Previous">
-                            </button>
-                            <button class="nav-button next">
-                                <img src="<?= $arrow_left; ?>" alt="Next">
-                            </button>
-                            <div class="pagination_handle"></div>
+                            <div class="item_rooms wrapper_button_pagination">
+                                <button class="nav-button prev">
+                                    <img src="<?= $arrow_left; ?>" alt="Previous">
+                                </button>
+                                <button class="nav-button next">
+                                    <img src="<?= $arrow_left; ?>" alt="Next">
+                                </button>
+                                <div class="pagination_handle"></div>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="group_info flex flex-col gap-7 md:gap-9 w-full md:w-3/12">
+                    <div class="group_info flex flex-col gap-7 md:gap-9 w-full max-w-[440px]">
                         <div class="title_des">
-                            <h2 class="title">
+                            <!-- <h2 class="title">
                                 THE ONYX HOUSE
-                            </h2>
+                            </h2> -->
                             <p class="description">
                                 At The Onyx House, we take our name seriously so you can be sure our ingredients are the
                                 freshest, finest and healthiest our team can find, and of course we always try to source
@@ -84,8 +89,8 @@ get_header();
                             </div>
                         </div>
                         <p class="note_">(Last bookings are 15 minutes before closing times)</p>
-                        <a class="button_details btn_cus form-right" href="">Food menu</a>
-                        <a class="button_details btn_cus form-right" href="">Drink Menu</a>
+                        <a class="button_details link link--carpo " href="">Food menu</a>
+                        <a class="button_details link link--carpo " href="">Drink Menu</a>
 
 
                     </div>
@@ -113,7 +118,7 @@ get_header();
                             for you to choose according to your preference. Brunch is served from 8AM - 3PM weekend
                             (Saturday & Sunday) at An Lam.
                         </p>
-                        <a href="" class="button_details">Reserve A Table</a>
+                        <a href="" class="button_details link link--carpo  ">Reserve A Table</a>
                     </div>
 
                 </div>
@@ -133,7 +138,9 @@ get_header();
                             for you to choose according to your preference. Brunch is served from 8AM - 3PM weekend
                             (Saturday & Sunday) at An Lam.
                         </p>
-                        <a href="" class="button_details">Reserve A Table</a>
+                        <a href="" class="button_details link link--carpo ">
+                            <span>Reserve A Table</span>
+                        </a>
                     </div>
 
                 </div>

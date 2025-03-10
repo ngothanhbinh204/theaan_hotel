@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Facilities
+Template Name: Meeting&Conference
 */
 get_header();
 ?>
@@ -21,10 +21,14 @@ get_header();
 
     <section class="section_general md:my-[160px] md:mt-[84px]">
         <div class="container title_subtitle flex flex-col items-center gap-y-[42px]">
-            <h2 class="title">Facilities</h2>
-            <p class="description">Unwind in our luxurious spa, stay active in our state-of-the-art gym, and take a
-                refreshing dip in the rooftop pool while enjoying stunning views of Hanoi. Don’t miss our Sky Bar for
-                delightful drinks and vibrant nightlife. </p>
+            <h2 class="title">Events & Meetings</h2>
+            <p class="description">The Ann Hanoi offers a diverse range of Meeting and Conference spaces, perfectly
+                suited for various occasions, from formal conferences and corporate gatherings to intimate private
+                celebrations. Designed with a modern and sophisticated touch, our venues feature flexible setups that
+                can be tailored to meet your specific needs. Whether you prefer a cozy and elegant ambiance for
+                exclusive meetings or an open, spacious setting for a grand event, we ensure a seamless and memorable
+                experience. Our dedicated team is always ready to provide expert consultation and personalized
+                arrangements to make every event truly exceptional.</p>
         </div>
     </section>
 
@@ -33,7 +37,7 @@ get_header();
             <div class="list_dining list_facilities !gap-y-14 md:!gap-y-20 list_rooms">
                 <div class="box_facilities flex flex-col md:flex-row md:gap-x-[30px] lg:gap-x-[68px] gap-y-8">
                     <?php
-                    $room_image = "http://theannhotel.local/wp-content/uploads/2025/03/dining_img.jpg";
+                    $room_image = "http://theannhotel.local/wp-content/uploads/2025/03/mettings-1.jpg";
                     $arrow_left = "http://theannhotel.local/wp-content/uploads/2025/03/arrow-left.svg";
                     ?>
                     <div class="item_room room-box item_onlyImage item_onlyImage_Page  w-full md:w-9/12 wh_1000_700"
@@ -59,21 +63,15 @@ get_header();
                     <div class="group_info flex flex-col justify-center gap-5 md:gap-[78px] w-full md:w-3/12">
                         <div class="title_des">
                             <h2 class="title">
-                                Gym Center
+                                meetings
                             </h2>
                         </div>
-                        <div class="list_info flex flex-col gap-5 md:gap-[78px]">
-                            <div class="item">
-                                <p class="md:mb-5">Type </p>
-                                <span>Fitness</span>
-                            </div>
-                            <div class="item">
-                                <p class="md:mb-5">Location </p>
-                                <span>Floor 12F</span>
-                            </div>
-
-                        </div>
-                        <a class="button_details link link--carpo" href="">VIEW DETAILS</a>
+                        <p class="description">
+                            Host your one-of-a-kind meeting in one of our unique spaces. We offer planning designed to
+                            support your meeting's goals, as well as options for fully catered meetings or quick snacks
+                            to energize you during breaks.
+                        </p>
+                        <a class="button_details link link--carpo" href="">EXPLORE MORE</a>
                     </div>
                 </div>
 
@@ -83,6 +81,7 @@ get_header();
 
     <?php get_template_part('template-parts/exployer_section'); ?>
 
+    <?php get_template_part('template-parts/section_guest'); ?>
 
 </main>
 

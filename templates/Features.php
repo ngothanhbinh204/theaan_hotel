@@ -93,13 +93,109 @@ get_header();
                                     <?php } ?>
                                 </div>
 
-                                <button class="nav-button prev">
-                                    <img src="<?= $arrow_left; ?>" alt="Previous">
-                                </button>
-                                <button class="nav-button next">
-                                    <img src="<?= $arrow_left; ?>" alt="Next">
-                                </button>
-                                <div class="pagination_handle"></div>
+                                <div class="item_rooms wrapper_button_pagination">
+                                    <button class="nav-button prev">
+                                        <img src="<?= $arrow_left; ?>" alt="Previous">
+                                    </button>
+                                    <button class="nav-button next">
+                                        <img src="<?= $arrow_left; ?>" alt="Next">
+                                    </button>
+                                    <div class="pagination_handle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="group_info flex flex-col justify-center gap-5 md:gap-y-9 w-full md:w-3/12 md:max-w-[326px]">
+                            <div class="title_des title_des_detail">
+                                <h2 class="title">
+                                    hoa lo prision
+                                </h2>
+                            </div>
+                            <p class="description">
+                                Explore the historical significance of Hoa Lo Prison, a powerful symbol of Vietnam’s
+                                turbulent past. Originally built by the French in the late 19th century, this site has
+                                witnessed profound stories of resilience and struggle. Today, it stands as a museum,
+                                offering insight into the lives of political prisoners and the impact of the Vietnam
+                                War.
+                            </p>
+                            <p class="description italic">
+                                (Image from Internet)
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div
+                        class="box_facilities box_facilities_details flex flex-col md:flex-row md:gap-x-[30px] lg:gap-x-[54px] gap-y-8">
+                        <?php
+                        $room_image = "http://theannhotel.local/wp-content/uploads/2025/03/Feature_img.png";
+                        $arrow_left = "http://theannhotel.local/wp-content/uploads/2025/03/arrow-left.svg";
+                        ?>
+                        <div class="item_room room-box item_onlyImage item_onlyImage_Page w-full md:w-9/12 wh_1000_750"
+                            data-room-id="city-king">
+                            <div class="slider">
+                                <div class="slides-container">
+                                    <?php for ($k = 0; $k < 3; $k++) { ?>
+                                    <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                                    <?php } ?>
+                                </div>
+
+                                <div class="item_rooms wrapper_button_pagination">
+                                    <button class="nav-button prev">
+                                        <img src="<?= $arrow_left; ?>" alt="Previous">
+                                    </button>
+                                    <button class="nav-button next">
+                                        <img src="<?= $arrow_left; ?>" alt="Next">
+                                    </button>
+                                    <div class="pagination_handle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="group_info flex flex-col justify-center gap-5 md:gap-y-9 w-full md:w-3/12 md:max-w-[326px]">
+                            <div class="title_des title_des_detail">
+                                <h2 class="title">
+                                    hoa lo prision
+                                </h2>
+                            </div>
+                            <p class="description">
+                                Explore the historical significance of Hoa Lo Prison, a powerful symbol of Vietnam’s
+                                turbulent past. Originally built by the French in the late 19th century, this site has
+                                witnessed profound stories of resilience and struggle. Today, it stands as a museum,
+                                offering insight into the lives of political prisoners and the impact of the Vietnam
+                                War.
+                            </p>
+                            <p class="description italic">
+                                (Image from Internet)
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div
+                        class="box_facilities box_facilities_details flex flex-col md:flex-row md:gap-x-[30px] lg:gap-x-[54px] gap-y-8">
+                        <?php
+                        $room_image = "http://theannhotel.local/wp-content/uploads/2025/03/Feature_img.png";
+                        $arrow_left = "http://theannhotel.local/wp-content/uploads/2025/03/arrow-left.svg";
+                        ?>
+                        <div class="item_room room-box item_onlyImage item_onlyImage_Page w-full md:w-9/12 wh_1000_750"
+                            data-room-id="city-king">
+                            <div class="slider">
+                                <div class="slides-container">
+                                    <?php for ($k = 0; $k < 3; $k++) { ?>
+                                    <img src="<?= $room_image; ?>" alt="City King room" class="slide">
+                                    <?php } ?>
+                                </div>
+
+                                <div class="item_rooms wrapper_button_pagination">
+                                    <button class="nav-button prev">
+                                        <img src="<?= $arrow_left; ?>" alt="Previous">
+                                    </button>
+                                    <button class="nav-button next">
+                                        <img src="<?= $arrow_left; ?>" alt="Next">
+                                    </button>
+                                    <div class="pagination_handle"></div>
+                                </div>
                             </div>
                         </div>
                         <div
@@ -128,7 +224,7 @@ get_header();
         </div>
     </section>
 
-    <?php get_template_part('./template-parts/section_contact'); ?>
+    <?php get_template_part('./template-parts/section_guest'); ?>
 
 
 </main>

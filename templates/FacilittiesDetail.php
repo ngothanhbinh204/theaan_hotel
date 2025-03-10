@@ -95,13 +95,15 @@ get_header();
                                 <?php } ?>
                             </div>
 
-                            <button class="nav-button prev">
-                                <img src="<?= $arrow_left; ?>" alt="Previous">
-                            </button>
-                            <button class="nav-button next">
-                                <img src="<?= $arrow_left; ?>" alt="Next">
-                            </button>
-                            <div class="pagination_handle"></div>
+                            <div class="item_rooms wrapper_button_pagination">
+                                <button class="nav-button prev">
+                                    <img src="<?= $arrow_left; ?>" alt="Previous">
+                                </button>
+                                <button class="nav-button next">
+                                    <img src="<?= $arrow_left; ?>" alt="Next">
+                                </button>
+                                <div class="pagination_handle"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="group_info flex flex-col justify-center gap-5 md:gap-y-9 w-full md:w-3/12">
