@@ -111,6 +111,39 @@
     padding-left: 32px;
     padding-right: 100px;
   }
+
+  .container_features {
+    max-width: 1380px !important;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .wh_1000_750 {
+    width: 1000px !important;
+    height: 750px !important;
+  }
+
+  .wrapper_button_pagination {
+
+    .item_onlyImage_Page {
+      .nav-button {
+        bottom: 24px ;
+     
+        &.prev {
+          left: 330px !important;
+        }
+        &.next {
+          right: 330px !important;
+  
+        }
+      }
+  
+      .pagination_handle {
+        bottom: 46px !important;
+        gap: 4px !important;
+      }
+  }
+  }
+
 }
 @media (min-width: 1360px) {
   .page_rooms  {

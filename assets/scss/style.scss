@@ -80,10 +80,34 @@
   width: 100%;
   overflow: visible !important;
 }
+.item_onlyImage_Page {
+  .wrapper_button_pagination {
+    position: relative;
+    width: 100%;
+      .nav-button {
+        bottom: 1rem ;
+        position: absolute;
+    
+        &.prev {
+          left: 1rem;
+        }
+        &.next {
+          right: 1rem;
+
+        }
+      }
+
+      .pagination_handle {
+        bottom: 46px !important;
+        gap: 4px !important;
+      }
+  }
+}
 
 $color-body: #F2F0E9;
 $text-color: #363636;
 $text-color-B2 : #363636B2;
+$text-black-70: #000000B2;
 // $color-primary: #FFC107;
 body {
   background-color: $color-body;
@@ -99,7 +123,19 @@ body {
 body.admin-bar header.site-header {
   margin-top: 32px; /* Điều chỉnh tùy vào chiều cao của thanh admin */
 }
+.heading_base {
+  font-family: Gilroy;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 140%;
+    letter-spacing: 2.2px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #000000;
+    max-width: 1312px;
 
+}
 /* Mobile (<= 640px) */
 #masthead.header_scroll {
   background-color: rgba(0, 0, 0, 0.3);
@@ -1971,7 +2007,29 @@ footer {
   }
 }
 
+.box_img_theme__ {
+  z-index: -2;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  img {
+    // object-position: 43% center;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    object-fit: cover;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%);
 
+  }
+}
 
 /* From Right */
 .form-right {
@@ -2201,6 +2259,182 @@ footer {
   }
 }
 
+
+.facilities_head {
+  p.description {
+    font-family: Gilroy;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    text-align: center;
+    vertical-align: middle;
+
+    max-width: 100% !important;
+    color: #00000080;
+
+  }
+}
+
+.list_ovv {
+  row-gap: 60px;
+  .box {
+    padding-top: 40px;
+    border-top: 1px solid #AEAEAE;
+  }
+  h2.title {
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+    letter-spacing: 2.2px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    
+  }
+
+  .item {
+ 
+    .cate_ {
+      flex: none;
+      font-weight: 700 !important;
+      color: $text-color !important;
+      width: 120px !important;
+    }
+    .value {
+      font-weight: 500 !important;
+      color: $text-color-B2;
+    }
+  }
+
+
+}
+
+
+.container_facilities {
+  .list_facilities {
+  .box_facilities_details {
+    .room-box {
+      .slider {
+
+      }
+    }
+    .group_info {
+      color: $text-color;
+
+      .title_des.title_des_detail {
+      h2.title {
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 120%;
+        letter-spacing: 2px;
+        vertical-align: middle;
+        text-transform: uppercase;
+        
+        text-transform: uppercase;
+         margin-bottom: 0px;
+        }
+      }
+
+      p.description {
+        font-family: Gilroy;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        letter-spacing: 1px;
+        text-align: justify;
+        vertical-align: middle;
+        color: #00000080;
+      }
+    
+
+      .list_info {
+
+        .item {
+          font-family: Gilroy;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 120%;
+          letter-spacing: 1.25px;
+          vertical-align: middle;
+        
+          p {
+            font-weight: 700;
+            margin-bottom: 8px !important;
+          }
+          span {
+            color: $text-color-B2;
+          }
+        }
+
+      }
+
+      a.button_details {
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 140%;
+        letter-spacing: 2px;
+        vertical-align: middle;
+        width: fit-content;
+        color: $text-color;
+        border-bottom: 1px solid #000000;
+        padding: 4px 0px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  }
+}
+.features_head {
+  color: $text-color;
+  h2.title {
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 140%;
+    letter-spacing: 2.2px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+
+  }
+  .gr {
+    width: 100%;
+    p.description {
+      font-family: Andada Pro;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 140%;
+      letter-spacing: 0px;
+      text-align: center;
+      vertical-align: middle;
+      color: $text-black-70;
+  
+    }
+  }
+}
+
+.item_happenings {
+  display:flex;
+  align-items:start;
+  justify-content:end;
+  flex-direction:column;
+  height: 474px;
+  padding: 24px;
+  h3.title {
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 1.25px;
+    vertical-align: bottom;
+
+    color: #FFFFFF;
+
+  }
+}
 
 @import "./components/768px";
 @import "./components/1024px";
